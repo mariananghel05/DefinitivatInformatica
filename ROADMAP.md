@@ -90,6 +90,10 @@ Informației**.
 - [x] Banc extins cu **tema „Competențe"** (25 întrebări: 16 grilă + 9 text) — competențe generale (gimnaziu,
       liceu IX–X și XI–XII) și specifice (cu text oficial), inclusiv decodarea codului `X.Y`
 - [x] Adăugat **filtru pe temă** în ecranul de start (chips + contor de întrebări per mod)
+- [x] Carduri „cod → denumirea algoritmului" (grilă cu bloc de cod) + carduri competențe specifice generate automat
+- [x] Deploy **GitHub Pages**: `base` din `DOCS_BASE` (config.mts) + `.github/workflows/deploy.yml`
+- [x] Pagina **`programa-clase.md`** — conținuturile pe clase V–XII, extrase din programele în vigoare
+      (gimnaziu OMEN 3393/2017; liceu IX–X OMECI 5099/2009; XI–XII mat-info) + notă despre reforma liceală
 - [x] `npm run docs:build` fără erori; ieșirile problemelor de cod validate pe compilatorul real
 
 ## Convenții de lucru

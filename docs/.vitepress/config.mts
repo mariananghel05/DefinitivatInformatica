@@ -25,7 +25,13 @@ export default defineConfig({
     nav: [
       { text: 'Acasă', link: '/' },
       { text: 'Despre examen', link: '/despre-examen' },
-      { text: 'Programa', link: '/harta-materiei' },
+      {
+        text: 'Programa',
+        items: [
+          { text: 'Harta materiei', link: '/harta-materiei' },
+          { text: 'Conținuturi pe clase (V–XII)', link: '/programa-clase' },
+        ],
+      },
       {
         text: 'Tematică științifică',
         link: '/stiintific/',
