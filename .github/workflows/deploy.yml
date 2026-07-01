@@ -29,6 +29,8 @@ jobs:
           node-version: 20
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true # activează Pages (sursă „GitHub Actions") dacă nu e deja provizionat
       - name: Install
         run: npm ci
       - name: Build
