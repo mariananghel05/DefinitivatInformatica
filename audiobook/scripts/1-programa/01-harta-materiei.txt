@@ -1,0 +1,72 @@
+;; ============================================================
+;; SECȚIUNEA 1 — PROGRAMA · Capitolul 1: Harta materiei
+;; ============================================================
+@rate=-4%
+
+@mode=emph
+Harta materiei. Programa completă.
+@pause=700
+
+@mode=normal
+Hai să trecem prin tot ce intră în programa de examen. Vezi asta ca pe o listă de verificare: la final ar trebui să ai o imagine clară a întregului teritoriu, ca să nu te prindă nimic pe nepregătite.
+@pause=300
+
+Un lucru important despre structură. Fiecare temă științifică este tratată pe trei planuri: teoria, cu exemple de cod în C plus plus; competențele vizate, adică ce formezi la elevi prin acea temă; și abordarea metodică, cum o predai concret. Vei regăsi mereu aceste trei fețe.
+@pause=500
+
+@mode=emph
+Partea de tematică științifică are zece teme.
+@pause=500
+
+@mode=normal
+Tema întâi: Algoritmi. Noțiunea de algoritm și caracteristicile lui, principiile programării structurate, cele trei structuri fundamentale, reprezentarea prin pseudocod și scheme logice, algoritmii elementari, sortările, interclasarea, căutarea și analiza complexității.
+@pause=250
+
+Tema a doua: Limbaje de programare, în C plus plus. Sintaxă, tipuri de date, operatori, instrucțiuni de decizie și repetitive, tipuri structurate, adică tablouri, înregistrări și șiruri de caractere, fișiere text, subprograme, recursivitate și programarea orientată pe obiecte.
+@pause=250
+
+Tema a treia: Metode de programare. Greedy, backtracking, divide et impera, programare dinamică și generarea elementelor combinatoriale.
+@pause=250
+
+Tema a patra: Alocarea dinamică a memoriei. Pointeri, listele înlănțuite, stivele, cozile și structurile arborescente, inclusiv arborii binari de căutare.
+@pause=250
+
+Tema a cincea: Teoria grafurilor. Terminologia, reprezentările, parcurgerile în lățime și în adâncime, conexitatea, drumurile minime și arborii parțiali de cost minim.
+@pause=250
+
+Tema a șasea: Baze de date. Modelul relațional, normalizarea, cheile primare și străine și comenzile din limbajul de interogare.
+@pause=250
+
+Tema a șaptea: Arhitectura sistemelor de calcul. Modelul von Neumann, unitatea centrală, memoria și dispozitivele periferice.
+@pause=250
+
+Tema a opta: Sisteme de operare. Funcțiile lor, sistemul de fișiere, securitatea, virușii și licențele software.
+@pause=250
+
+Tema a noua: Aplicații și programe specializate. Procesoare de text, editoare de calcul tabelar și de prezentări.
+@pause=250
+
+Și tema a zecea: Rețele de calculatoare. Protocoale, rețeaua Internet și limbajul de marcare pentru paginile web.
+@pause=600
+
+@mode=emph
+Urmează tematica pentru metodica predării, cu trei teme.
+@pause=450
+
+@mode=normal
+Prima: Proiectarea didactică. Curriculumul național, planificarea calendaristică, proiectul unității de învățare și proiectul de lecție.
+@pause=250
+
+A doua: Strategii didactice. Tipurile de lecție și momentele ei, metodele didactice, inclusiv cele activ-participative, mijloacele de învățământ și software-ul educațional.
+@pause=250
+
+A treia: Evaluarea randamentului școlar. Funcțiile și formele evaluării, metodele, tipurile de itemi și notarea.
+@pause=600
+
+@mode=slow
+Acesta este întregul teritoriu. Patru secțiuni, în ordine: programa, pe care tocmai am parcurs-o; tematica științifică; competențele; și metodica.
+@pause=300
+
+@mode=normal
+Acum că ai harta în minte, intrăm în prima zonă de adâncime: tematica științifică.
+@pause=500

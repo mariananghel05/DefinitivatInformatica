@@ -1,0 +1,23 @@
+{
+  "name": "curs-definitivat-informatica",
+  "version": "1.0.0",
+  "description": "Curs pentru examenul național de definitivare în învățământ - Informatică și Tehnologia Informației",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": [
+    "definitivat",
+    "informatica",
+    "TIC",
+    "vitepress",
+    "educatie"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}

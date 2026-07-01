@@ -1,0 +1,43 @@
+;; ============================================================
+;; SECȚIUNEA 1 — PROGRAMA · Capitolul 0: Introducere
+;; ============================================================
+@rate=-4%
+
+@mode=emph
+Curs audio pentru examenul de definitivat. Informatică și Tehnologia Informației.
+@pause=700
+
+@mode=normal
+Bun venit. Acesta este un curs audio complet, gândit ca să-l poți asculta oriunde: în drum spre școală, la sală, sau în pauze, direct de pe telefon.
+@pause=350
+
+Materialul e împărțit în patru secțiuni mari, pe care le vom parcurge exact în această ordine.
+@pause=250
+
+@mode=slow
+Întâi: Programa. Adică harta completă a materiei, ca să știi clar ce ai de acoperit.
+Apoi: Tematica științifică, partea de specialitate, cu cele zece teme de informatică.
+A treia: Competențele, atât cele pe care le formezi la elevi, cât și cele cerute ție, ca profesor.
+Și a patra: Metodica predării, adică felul în care duci toată această materie în clasă.
+@pause=600
+
+@mode=normal
+Înainte de a începe, câteva repere despre examen, ca să ai contextul potrivit.
+@pause=300
+
+Examenul de definitivare în învățământ încheie formarea inițială a profesorului și condiționează titularizarea. Promovarea lui dovedește că stăpânești două lucruri deopotrivă: conținutul științific al disciplinei și metodica predării ei.
+@pause=300
+
+Proba scrisă durează patru ore și are două subiecte obligatorii. Primul, de specialitate, valorează șaizeci de puncte. Al doilea, de metodică, treizeci de puncte. Plus zece puncte din oficiu. Nota finală e punctajul total împărțit la zece.
+@pause=300
+
+@mode=emph
+Reține un singur prag: nota minimă de promovare este opt.
+@pause=600
+
+@mode=normal
+Un sfat pentru cum folosești acest audiobook. Nu încerca să rețina totul din prima ascultare. Lasă conceptele să se așeze. Ascultă o secțiune, apoi revino la ea. Iar acolo unde explic cod, urmărește ideea, logica pașilor, nu memora caracter cu caracter; codul scris îl ai oricând în material.
+@pause=400
+
+Atât despre context. Să trecem la harta materiei.
+@pause=500
