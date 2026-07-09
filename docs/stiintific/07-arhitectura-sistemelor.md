@@ -33,6 +33,17 @@ stochează atât **programul**, cât și **datele**.
 - **Regiștrii** — memorii foarte rapide, interne procesorului.
 - **Magistralele (bus)** — căi de comunicație: **de date**, **de adrese**, **de control**.
 
+**Ciclul de execuție a unei instrucțiuni** (*fetch – decode – execute*) — ce repetă procesorul la nesfârșit:
+
+1. **aducerea** instrucțiunii din memorie (*fetch*), de la adresa indicată de contorul de program;
+2. **decodificarea** ei (*decode*) — UCC stabilește ce operație se cere și cu ce operanzi;
+3. **execuția** (*execute*) — UAL efectuează operația; rezultatul ajunge în regiștri sau în memorie;
+4. se trece la instrucțiunea următoare și ciclul se reia.
+
+Frecvența procesorului (de ex. 3 GHz = 3 miliarde de cicluri pe secundă) dă ritmul acestor pași — de aici
+vine estimarea „~10⁸ operații simple pe secundă" folosită la analiza complexității
+([Algoritmi](/stiintific/01-algoritmi)).
+
 ### 7.3. Memoria
 
 | Tip | Caracteristică |
@@ -43,6 +54,18 @@ stochează atât **programul**, cât și **datele**.
 | **Memorie externă** | nevolatilă, capacitate mare: HDD, **SSD**, stick USB, DVD |
 
 Ierarhia memoriei (de la rapid/scump/mic la lent/ieftin/mare): **regiștri → cache → RAM → memorie externă**.
+
+**Unități de măsură a informației** (cerute frecvent la itemii obiectivi):
+
+| Unitate | Echivalență |
+|---|---|
+| 1 **bit** (b) | cea mai mică unitate de informație: 0 sau 1 |
+| 1 **octet / byte** (B) | 8 biți — memorează, de exemplu, un caracter |
+| 1 **KB → MB → GB → TB** | fiecare treaptă = 1024 × precedenta (2¹⁰) |
+
+*Exemplu de calcul:* un fișier de 4 MB = 4 × 1024 × 1024 = 4 194 304 octeți. În memorie totul este
+**binar**: numărul 13 se reține ca `1101₂`, iar un `int` ocupă 4 octeți = 32 de biți — de aceea limita
+lui este 2³¹ − 1 (vezi [Limbaje de programare](/stiintific/02-limbaje-programare)).
 
 ### 7.4. Dispozitive periferice
 
@@ -90,6 +113,18 @@ unei liste de reguli ergonomice pentru laboratorul de informatică.
 - ideea că RAM-ul păstrează datele după oprire (este **volatilă**);
 - confuzia **periferice de intrare** ↔ **de ieșire**.
 :::
+
+## Conexiuni cu alte teme
+
+- **Stiva și heap-ul** de la [Alocarea dinamică](/stiintific/04-alocare-dinamica) sunt zone din RAM-ul
+  descris aici, iar dimensiunile tipurilor din [C++](/stiintific/02-limbaje-programare) (int = 4 octeți)
+  decurg din organizarea memoriei.
+- [Sistemul de operare](/stiintific/08-sisteme-de-operare) este stratul software care administrează
+  acest hardware: procese pe CPU, memorie, periferice prin drivere.
+- Placa de rețea și modemul sunt periferice de intrare/ieșire — puntea spre
+  [Rețele de calculatoare](/stiintific/10-retele-de-calculatoare).
+- Ierarhia de memorie (cache mic și rapid ↔ RAM mare și mai lent) explică de ce numărul de operații —
+  [complexitatea](/stiintific/01-algoritmi) — se traduce în timp real de execuție.
 
 ## Recapitulare
 

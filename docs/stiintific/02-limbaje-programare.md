@@ -46,6 +46,15 @@ cout << "Suma = " << a + b << "\n";
 cout << "Catul = " << a / b << ", restul = " << a % b << "\n";
 ```
 
+::: warning Capcane numerice frecvente (apar des în subiecte)
+- `7 / 2` este `3` — împărțire **întreagă** între întregi; `7.0 / 2` este `3.5`;
+- `int` reține până la ~2,1 miliarde (2³¹ − 1) — produsele și sumele mari cer `long long`;
+- numerele reale se compară cu o **toleranță** (`fabs(a - b) < 1e-9`), nu cu `==` — reprezentarea lor
+  în memorie este aproximativă;
+- caracterele sunt coduri numerice: `'A' + 1` este `'B'`, iar `cifra - '0'` transformă caracterul-cifră
+  în valoarea sa numerică.
+:::
+
 ### 1.3. Instrucțiuni
 
 ```cpp
@@ -122,6 +131,19 @@ int patrat(int x) { return x * x; }          // prin valoare (copie)
 void dubleaza(int &x) { x *= 2; }            // prin referință (modifică originalul)
 ```
 
+**Ce se întâmplă concret la apel:**
+
+```cpp
+int a = 5, b = 5;
+int rezultat = patrat(a);   // valoarea 5 se COPIAZĂ în x; a rămâne 5
+dubleaza(b);                // x devine „alt nume" pentru b; b devine 10
+cout << a << ' ' << b;      // afișează: 5 10
+```
+
+Regulă de proiectare: parametrii de **intrare** se transmit prin valoare (sau prin referință constantă,
+`const &`, la date mari), iar cei de **ieșire/modificați** — prin referință. **Tablourile** se transmit
+întotdeauna prin adresă, deci modificările făcute în subprogram se văd în apelator.
+
 ::: tip Variabile globale vs. locale
 O variabilă **locală** există doar în blocul/funcția unde e declarată (domeniu de vizibilitate restrâns).
 O variabilă **globală** e vizibilă în tot fișierul. Recomandare didactică: minimizează globalele,
@@ -137,6 +159,22 @@ long long fact(int n) {
     return n * fact(n - 1);      // pas recursiv
 }
 ```
+
+**Cum se execută `fact(4)` — stiva de apeluri:**
+
+```text
+fact(4) = 4 * fact(3)          ┐  coborâre: apelurile se „stivuiesc"
+  fact(3) = 3 * fact(2)        │  unul peste altul, până la
+    fact(2) = 2 * fact(1)      │  atingerea cazului de bază
+      fact(1) = 1              ┘  ← caz de bază
+    fact(2) = 2 * 1 = 2        ┐  revenire: rezultatele se
+  fact(3) = 3 * 2 = 6          │  calculează în ordine inversă,
+fact(4) = 4 * 6 = 24           ┘  pe măsură ce apelurile se închid
+```
+
+Fiecare apel ocupă un „etaj" pe **stiva de apeluri** (parametrii + adresa de revenire) — de aceea
+recursivitatea fără caz de bază umple stiva (*stack overflow*). Mecanismul stivei este detaliat la
+[Alocarea dinamică](/stiintific/04-alocare-dinamica).
 
 ### 1.7. Programarea orientată pe obiecte (POO)
 
@@ -165,6 +203,16 @@ public:
     double arie() const override { return 3.14159 * r * r; }
 };
 ```
+
+**Polimorfismul „la lucru"** — același apel se comportă diferit după obiectul concret:
+
+```cpp
+Forma* f = new Cerc(2);
+cout << f->arie();     // se apelează Cerc::arie() — legare DINAMICĂ, datorată lui virtual
+```
+
+Fără `virtual`, compilatorul ar alege metoda după **tipul pointerului** (`Forma`), nu după obiectul
+real (`Cerc`) — aceasta este diferența dintre legarea statică și cea dinamică, întrebare tipică de teorie.
 
 | Concept | Semnificație |
 |---|---|
@@ -212,6 +260,20 @@ intenționate (*debugging*); modularizarea unui program lung în subprograme.
 - recursivitate **fără caz de bază** → stivă plină (*stack overflow*);
 - confuzie `class` vs. `struct` la nivelul implicit de acces (`private` vs. `public`).
 :::
+
+## Conexiuni cu alte teme
+
+- Limbajul este „unealta" cu care se implementează tot ce apare la [Algoritmi](/stiintific/01-algoritmi)
+  și [Metode de programare](/stiintific/03-metode-programare); recursivitatea de aici este motorul
+  backtracking-ului și al lui divide et impera.
+- **Referințele** și lucrul cu adrese pregătesc pointerii și structurile dinamice de la
+  [Alocarea dinamică](/stiintific/04-alocare-dinamica); `struct` devine acolo nodul listelor și arborilor.
+- **Fișierele text** (secțiunea 1.5) sunt gestionate de
+  [sistemul de operare](/stiintific/08-sisteme-de-operare); compilarea transformă sursa în cod-mașină
+  executat de procesorul descris la [Arhitectura sistemelor](/stiintific/07-arhitectura-sistemelor) —
+  iar dimensiunile tipurilor (int = 4 octeți) țin de organizarea memoriei.
+- `struct Elev` este versiunea „în cod" a unei **înregistrări** dintr-un tabel de
+  [bază de date](/stiintific/06-baze-de-date).
 
 ## Recapitulare
 

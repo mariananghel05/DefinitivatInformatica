@@ -35,6 +35,22 @@
 | **FN2** | FN1 + fără dependențe parțiale de cheia compusă |
 | **FN3** | FN2 + fără dependențe tranzitive |
 
+::: details Exemplu de normalizare — de la un tabel „stufos" la o structură corectă
+Tabelul nenormalizat `Imprumuturi(id_elev, nume_elev, clasa, id_carte, titlu, autor, data_imprumut)`
+repetă numele elevului și titlul cărții la **fiecare** împrumut (redundanță) și suferă de **anomalii**:
+- **de actualizare** — schimbi numele unui elev într-o linie și uiți alta ⇒ date contradictorii;
+- **de ștergere** — ștergi ultimul împrumut al unei cărți și pierzi odată cu el datele cărții;
+- **de inserare** — nu poți înregistra o carte nouă până când nu e împrumutată de cineva.
+
+Soluția: descompunem pe entități, legate prin chei străine:
+- `Elevi(id_elev, nume, clasa)`
+- `Carti(id_carte, titlu, autor)`
+- `Imprumuturi(id_imprumut, id_elev → Elevi, id_carte → Carti, data_imprumut)`
+
+Fiecare fapt este stocat **o singură dată**; împrumutul leagă doar identificatorii. Acesta este exact
+tipul de raționament cerut la proiectarea unei baze de date pornind de la cerințe.
+:::
+
 ### 6.3. Modelul fizic (relațional)
 
 - **Tabel (relație)** — structură cu linii și coloane.
@@ -101,6 +117,20 @@ JOIN Note n ON n.id_elev = e.id
 WHERE n.nota = 10;
 ```
 
+**Ordinea logică de evaluare a unui `SELECT`** (diferită de ordinea în care se scrie!):
+
+```text
+FROM (+ JOIN) → WHERE → GROUP BY → HAVING → SELECT → ORDER BY
+```
+
+De aici decurg regulile care „pică" frecvent la examen: `WHERE` **nu poate folosi** funcții de agregare
+(grupurile nu există încă în acel moment — de aceea există `HAVING`), iar aliasurile definite în
+`SELECT` nu sunt vizibile în `WHERE`.
+
+**Tipuri de `JOIN`:** `INNER JOIN` (cel implicit) păstrează doar perechile cu corespondent în **ambele**
+tabele; `LEFT JOIN` păstrează **toate** liniile din tabelul din stânga, completând cu `NULL` acolo unde
+nu există corespondent (de exemplu: și elevii care nu au nicio notă).
+
 | Comandă | Categorie | Rol |
 |---|---|---|
 | `SELECT` | DML / interogare | extrage date |
@@ -143,6 +173,19 @@ scrierea de interogări pe o bază de date demonstrativă; corectarea unei inter
 - `DELETE`/`UPDATE` **fără `WHERE`** → afectează tot tabelul;
 - confuzia **cheie primară** ↔ **cheie străină**.
 :::
+
+## Conexiuni cu alte teme
+
+- O **înregistrare** este echivalentul unui `struct` din [C++](/stiintific/02-limbaje-programare);
+  un tabel este, conceptual, un „vector de structuri" persistent.
+- `ORDER BY` și indecșii aplică **sortarea și căutarea** de la [Algoritmi](/stiintific/01-algoritmi);
+  intern, indecșii folosesc arbori de căutare — vezi
+  [Alocarea dinamică](/stiintific/04-alocare-dinamica).
+- Modelele istorice **ierarhic** și **rețea** sunt un arbore, respectiv un graf —
+  [Teoria grafurilor](/stiintific/05-teoria-grafurilor).
+- SGBD-ul rulează de regulă pe un server accesat prin
+  [rețea](/stiintific/10-retele-de-calculatoare); **îmbinarea corespondenței** (mail merge) din
+  [aplicațiile de birotică](/stiintific/09-aplicatii-specializate) consumă exact astfel de date tabelare.
 
 ## Recapitulare
 

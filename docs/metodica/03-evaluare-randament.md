@@ -67,7 +67,23 @@ barem explicit; concordanța cu competența evaluată; grad de dificultate adecv
 - **subiectiv:** „Scrieți un subprogram care returnează al doilea cel mai mare element dintr-un vector și justificați corectitudinea."
 :::
 
-### 3.5. Notarea și aprecierea școlară
+### 3.5. Proiectarea unui test — matricea de specificații
+
+**Matricea de specificații** garantează **validitatea** testului: distribuie itemii pe conținuturi și pe
+niveluri cognitive, astfel încât testul să acopere echilibrat ce s-a predat. Exemplu pentru un test
+„Algoritmi de sortare și căutare" (clasa a IX-a):
+
+| Conținut \ Nivel cognitiv | cunoaștere | aplicare | raționament | Pondere |
+|---|---|---|---|---|
+| căutare secvențială / binară | 1 item (A/F) | 1 item (trasare) | — | 30% |
+| sortare prin selecție | 1 item (grilă) | 1 item (implementare) | — | 40% |
+| analiza complexității | — | 1 item (calcul) | 1 item (comparare argumentată) | 30% |
+| **Total** | 30% | 45% | 25% | 100% |
+
+Pașii proiectării unui test: stabilirea competențelor evaluate → **matricea de specificații** →
+redactarea itemilor → **baremul** → aplicarea → analiza rezultatelor (ce reglăm în predare).
+
+### 3.6. Notarea și aprecierea școlară
 
 **Notarea** transformă aprecierea în notă (1–10). Sistemul de notare poate fi: **prin raportare la
 barem** (criterial), prin raportare la grup (normativă) sau la progresul individual.
@@ -102,12 +118,44 @@ barem** (criterial), prin raportare la grup (normativă) sau la progresul indivi
 | 2. „Completați limita buclei interioare: `for(j=0;j<___;j++)`" | semiobiectiv | implementare corectă | 20 p |
 | 3. „Scrieți subprogramul de sortare prin selecție" | subiectiv | aplicarea algoritmului | 60 p |
 
+**Baremul detaliat pentru itemul 3** (subiectiv, 60 p) — corectarea „pe itemi" cere punctaj defalcat:
+
+| Criteriu | Punctaj |
+|---|---|
+| antetul corect al subprogramului (parametri, tipuri) | 10 p |
+| bucla exterioară cu limite corecte | 10 p |
+| determinarea corectă a poziției minimului | 15 p |
+| interschimbarea elementelor | 10 p |
+| corectitudine de ansamblu (compilează; cazuri-limită: șir cu 1 element) | 10 p |
+| claritatea codului (denumiri, structurare) | 5 p |
+
+Se acordă **punctaje parțiale** pentru orice altă rezolvare corectă — formularea standard din baremele
+oficiale (vezi [modelele de subiecte](/subiecte/)).
+
+**Metodele alternative, concretizate la informatică:** **portofoliul** = colecția programelor și
+proiectelor elevului de-a lungul semestrului; **proiectul** = un produs finit — mini-site
+[HTML](/stiintific/10-retele-de-calculatoare) sau o [bază de date](/stiintific/06-baze-de-date) cu
+interogări; **investigația** = analiza unui set real de date în
+[calcul tabelar](/stiintific/09-aplicatii-specializate); **autoevaluarea** = elevul își testează
+programul pe cazuri-limită înainte de predare.
+
 ::: warning Greșeli frecvente la examen
 - confuzia **evaluare formativă** (pe parcurs, reglare) ↔ **sumativă** (final, bilanț);
 - confuzia **tipurilor de itemi** (obiectiv/semiobiectiv/subiectiv);
 - itemi **fără barem** sau cu enunț ambiguu;
 - ignorarea **factorilor de variabilitate** a notării și a modalităților de minimizare.
 :::
+
+## Conexiuni cu alte teme
+
+- Evaluarea este al treilea pilon al triadei predare–învățare–evaluare: proiectarea ei începe încă din
+  [proiectul de lecție](/metodica/01-proiectare-didactica) și din alegerea
+  [strategiilor didactice](/metodica/02-strategii-didactice).
+- Fiecare temă științifică din curs se încheie cu **exemple de itemi** pe cele trei categorii — de la
+  [Algoritmi](/stiintific/01-algoritmi) până la [Rețele](/stiintific/10-retele-de-calculatoare) — surse
+  directe pentru construirea testelor.
+- Structura reală a probei de definitivat (Subiect I / II, barem oficial) este detaliată la
+  [modelele de subiecte](/subiecte/).
 
 ## Recapitulare
 

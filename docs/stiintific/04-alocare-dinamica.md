@@ -12,6 +12,16 @@ apeluri de funcții) și **heap** (memorie alocată dinamic, la cerere). **Aloca
 rezervarea memoriei **în timpul execuției**, în funcție de necesități, și **eliberarea** ei când nu mai
 e folosită.
 
+| Zonă de memorie | Ce conține | Durata de viață |
+|---|---|---|
+| **Zona statică** | variabile globale, constante | toată execuția programului |
+| **Stiva (stack)** | variabile locale, parametri, adrese de revenire din apeluri | cât durează apelul funcției |
+| **Heap** | memoria cerută cu `new` | de la `new` până la `delete` — **programatorul decide** |
+
+Diferența esențială: pe stivă memoria se eliberează **automat** la ieșirea din funcție; pe heap
+eliberarea este **responsabilitatea programatorului**. De aici vin și avantajul (structuri care cresc
+oricât în timpul execuției), și riscurile (*memory leak*).
+
 ```cpp
 // Operatorii new / delete (C++)
 int *p = new int;          // alocare pentru un întreg
@@ -75,11 +85,37 @@ Nod* sterge(Nod* cap, int val) {
 }
 ```
 
+**Ce se întâmplă, pas cu pas, la inserarea în față** — `insereazaInceput(cap, 5)` pe lista `7 → 3`:
+
+```text
+Înainte:                cap ──► [7|•] ──► [3|•] ──► NULL
+
+Pas 1  nou = new Nod{5, cap}      nou ──► [5|•] ─┐
+       (nou îl indică deja pe 7)                 └──► [7|•] ──► [3|•] ──► NULL
+
+Pas 2  return nou (noul cap):     cap ──► [5|•] ──► [7|•] ──► [3|•] ──► NULL
+```
+
+**Ordinea contează:** noul nod primește mai întâi legătura spre vechiul cap și **abia apoi** devine cap.
+Dacă am scrie întâi `cap = nou` și abia apoi am lega `nou->urm`, am pierde accesul la restul listei —
+cea mai frecventă eroare la lucrul cu liste. La **ștergere**, pointerul `ant` (anteriorul) este necesar
+pentru a „ocoli" nodul șters (`ant->urm = p->urm`); nodul se eliberează cu `delete` **după** refacerea
+legăturii.
+
 | Structură | Caracteristică |
 |---|---|
 | **Listă simplu înlănțuită** | un pointer „următor" per nod |
 | **Listă dublu înlănțuită** | pointeri „anterior" și „următor" |
 | **Listă circulară** | ultimul nod indică spre primul |
+
+**Când listă, când vector?** Compararea costurilor operațiilor de bază:
+
+| Operație | Vector (tablou) | Listă simplu înlănțuită |
+|---|---|---|
+| acces la al `i`-lea element | **O(1)** — prin indice | O(n) — parcurgere de la cap |
+| inserare / ștergere la început | O(n) — deplasăm toate elementele | **O(1)** — refacem un pointer |
+| inserare / ștergere după un nod cunoscut | O(n) | **O(1)** |
+| memorie | bloc continuu, dimensiune fixată la alocare | crește/scade la nevoie; + un pointer pe nod |
 
 #### Stiva (stack) — LIFO
 
@@ -97,6 +133,34 @@ int top() { return varf->info; }
 #### Coada (queue) — FIFO
 
 Primul intrat, primul ieșit. Operații: `enqueue` (adăugare la coadă), `dequeue` (extragere de la început).
+Spre deosebire de stivă, avem nevoie de **doi pointeri**: unul spre primul nod (de unde extragem) și
+unul spre ultimul (unde adăugăm).
+
+```cpp
+struct Nod { int info; Nod* urm; };
+Nod *prim = nullptr, *ultim = nullptr;
+
+void enqueue(int x) {                    // adăugare la sfârșit
+    Nod* nou = new Nod{x, nullptr};
+    if (!prim) prim = ultim = nou;       // coada era goală
+    else { ultim->urm = nou; ultim = nou; }
+}
+
+int dequeue() {                          // extragere de la început
+    int valoare = prim->info;
+    Nod* vechi = prim;
+    prim = prim->urm;
+    if (!prim) ultim = nullptr;          // coada a devenit goală
+    delete vechi;
+    return valoare;
+}
+```
+
+::: tip Unde le folosim? (corelații care apar la examen)
+**Stiva** este mecanismul din spatele **recursivității** (stiva de apeluri) și al verificării
+corectitudinii parantezelor; **coada** stă la baza parcurgerii **BFS** din
+[Teoria grafurilor](/stiintific/05-teoria-grafurilor).
+:::
 
 ### 4.4. Structuri arborescente
 
@@ -126,6 +190,21 @@ void inordine(NodArbore* rad) {
     inordine(rad->dr);
 }
 ```
+
+**Exemplu de lucru:** inserăm pe rând `8, 3, 10, 1, 6` într-un BST inițial vid:
+
+```text
+      8            8 = rădăcina (primul element inserat)
+     / \
+    3   10         3 < 8 → stânga;   10 > 8 → dreapta
+   / \
+  1   6            1 < 8 și 1 < 3 → stânga lui 3;   6 < 8 dar 6 > 3 → dreapta lui 3
+```
+
+Parcurgerea în inordine (SRD) dă `1, 3, 6, 8, 10` — **crescător**, confirmând proprietatea BST.
+Căutarea unei chei urmează același drum ca inserarea: la fiecare nod eliminăm un subarbore întreg,
+deci într-un arbore echilibrat costă **O(log n)** — BST-ul este „ruda" arborescentă a
+[căutării binare](/stiintific/01-algoritmi).
 
 **Parcurgeri ale arborilor binari:**
 
@@ -171,6 +250,21 @@ a simula o listă; trasarea operațiilor push/pop pe o stivă; desenarea unui BS
 - *memory leak* — `new` fără `delete`;
 - confuzia între parcurgerile arborelui (RSD/SRD/SDR).
 :::
+
+## Conexiuni cu alte teme
+
+- **Stiva de apeluri** este exact mecanismul care face posibilă **recursivitatea** de la
+  [Limbaje de programare](/stiintific/02-limbaje-programare) — fiecare apel depune pe stivă parametrii
+  și adresa de revenire.
+- **Coada** este structura din spatele **BFS**, iar DFS-ul recursiv folosește implicit stiva — vezi
+  [Teoria grafurilor](/stiintific/05-teoria-grafurilor); tot acolo, arborele apare ca graf conex fără cicluri.
+- **BST** transpune ideea [căutării binare](/stiintific/01-algoritmi) într-o structură dinamică, ce
+  acceptă inserări și ștergeri fără „mutarea" elementelor.
+- Împărțirea memoriei în stivă/heap ține de gestiunea memoriei făcută de
+  [sistemul de operare](/stiintific/08-sisteme-de-operare), pe RAM-ul descris la
+  [Arhitectura sistemelor](/stiintific/07-arhitectura-sistemelor).
+- Ierarhia de foldere a sistemului de fișiere și modelele istorice **ierarhic**/**rețea** de la
+  [Baze de date](/stiintific/06-baze-de-date) sunt, structural, arbori și grafuri.
 
 ## Recapitulare
 

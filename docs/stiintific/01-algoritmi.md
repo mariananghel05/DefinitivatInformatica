@@ -155,6 +155,18 @@ void selectionSort(int numere[], int n) {
 }
 ```
 
+::: details Exemplu pas cu pas — sortarea prin inserție pe șirul [5, 2, 4, 1]
+| Pas | Element de inserat (`curent`) | Ce se întâmplă | Șirul după pas |
+|---|---|---|---|
+| i = 1 | 2 | 5 > 2 ⇒ 5 se mută la dreapta, 2 intră pe poziția 0 | **2, 5**, 4, 1 |
+| i = 2 | 4 | 5 > 4 ⇒ 5 se mută la dreapta; 2 < 4 ⇒ ne oprim | **2, 4, 5**, 1 |
+| i = 3 | 1 | 5, 4, 2 se mută pe rând; 1 intră pe poziția 0 | **1, 2, 4, 5** |
+
+Observă **invariantul** metodei: după pasul `i`, primele `i + 1` elemente sunt mereu sortate între ele.
+Acesta este argumentul de corectitudine al algoritmului — și o explicație excelentă pentru clasă:
+exact așa ordonăm cărțile de joc primite pe rând în mână.
+:::
+
 **Sortarea prin numărare** (counting sort) — pentru valori întregi într-un interval mic `[0, vmax]`,
 atinge complexitatea liniară **O(n + vmax)**:
 
@@ -190,7 +202,7 @@ std::vector<int> interclasare(const std::vector<int>& primul, const std::vector<
 ```
 
 > Interclasarea stă la baza sortării prin interclasare (*merge sort*) — vezi
-> [Metode de programare → Divide et impera](/stiintific/03-metode-programare#_3-divide-et-impera).
+> [Metode de programare → Divide et impera](/stiintific/03-metode-programare#_3-3-divide-et-impera).
 
 ### 1.7. Algoritmi de căutare
 
@@ -221,6 +233,19 @@ nesortate. De asemenea, calculul mijlocului ca `(stanga + dreapta) / 2` poate pr
 valori mari — preferă `stanga + (dreapta - stanga) / 2`.
 :::
 
+**Exemplu pas cu pas** — căutăm valoarea `21` în șirul sortat `[3, 7, 10, 14, 21, 25, 32]`
+(pozițiile 0–6):
+
+| Pas | `stanga` | `dreapta` | `mijloc` | `numere[mijloc]` | Decizie |
+|---|---|---|---|---|---|
+| 1 | 0 | 6 | 3 | 14 | 14 < 21 ⇒ căutăm în dreapta: `stanga = 4` |
+| 2 | 4 | 6 | 5 | 25 | 25 > 21 ⇒ căutăm în stânga: `dreapta = 4` |
+| 3 | 4 | 4 | 4 | 21 | **găsit** pe poziția 4 |
+
+La fiecare pas intervalul de căutare se **înjumătățește**: din 7 elemente rămân 3, apoi 1. De aceea
+numărul de pași este `log₂ n` — pe un șir de 1 000 000 de elemente sunt suficiente **20 de comparații**,
+față de până la 1 000 000 la căutarea secvențială.
+
 ### 1.8. Analiza complexității unui algoritm
 
 Eficiența se măsoară prin **complexitatea timp** (numărul de operații) și **complexitatea spațiu**
@@ -235,6 +260,28 @@ Eficiența se măsoară prin **complexitatea timp** (numărul de operații) și 
 | Interclasare (merge) | O(n log n) | stabilă |
 
 Clase uzuale, în ordinea creșterii: **O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!)**.
+
+**Cum determinăm practic complexitatea?** Numărăm de câte ori se execută operația dominantă (de regulă
+cea din bucla cea mai interioară):
+
+```cpp
+for (int i = 0; i < n; ++i)          // se execută n ori
+    for (int j = 0; j < n; ++j)      // pentru fiecare i, încă n pași
+        contor++;                    // total: n · n  ⇒  O(n²)
+
+for (int i = 0; i < n; ++i) contor++;   // O(n)   ┐ bucle succesive:
+for (int j = 0; j < m; ++j) contor++;   // O(m)   ┘ O(n + m), NU O(n·m)
+```
+
+Reguli practice: buclele **imbricate se înmulțesc**, buclele **succesive se adună**, iar constantele și
+termenii nedominanți se ignoră (`3n² + 5n + 7` este O(n²)).
+
+::: tip Regulă empirică pentru alegerea algoritmului
+Un calculator modern execută în jur de **10⁸ operații simple pe secundă**. Pentru `n = 100 000`:
+un algoritm O(n²) face 10¹⁰ pași (**prea lent** — minute întregi), unul O(n log n) face ~1,7·10⁶ pași
+(**instantaneu**). Întrebarea „cât de mare este n?" decide, deci, alegerea algoritmului — acesta este
+raționamentul care „traduce" notația O în timp real de execuție.
+:::
 
 ### 1.9. Specificitatea limbajului C++ — funcții uzuale din biblioteca standard
 
@@ -429,6 +476,22 @@ trasarea (table de execuție) a unui algoritm; compararea timpilor pentru două 
 - „ciclu infinit" — uită să modifice variabila de control în `cât timp`;
 - la sortare, **greșesc limitele** buclelor (`n-1`, `n-1-i`) → ies din vector.
 :::
+
+## Conexiuni cu alte teme
+
+- **Interclasarea** este pasul de „combinare" din *merge sort*, iar **căutarea binară** este un caz de
+  *divide et impera* — vezi [Metode de programare](/stiintific/03-metode-programare).
+- Algoritmii de aici se implementează cu instrucțiunile și subprogramele din
+  [Limbaje de programare](/stiintific/02-limbaje-programare); versiunile recursive se sprijină pe
+  **stiva de apeluri** — vezi [Alocarea dinamică](/stiintific/04-alocare-dinamica).
+- **BFS/DFS** din [Teoria grafurilor](/stiintific/05-teoria-grafurilor) generalizează căutarea la
+  structuri neliniare; coada din BFS este chiar structura FIFO de la alocarea dinamică.
+- Sortarea și căutarea reapar aplicat: `ORDER BY` și indecșii în
+  [Baze de date](/stiintific/06-baze-de-date), sortarea și filtrarea datelor în
+  [calcul tabelar](/stiintific/09-aplicatii-specializate).
+- Didactic: un model de **unitate de învățare** pe algoritmi de sortare este la
+  [Proiectarea didactică](/metodica/01-proiectare-didactica), iar proiectarea itemilor pe această temă la
+  [Evaluarea randamentului](/metodica/03-evaluare-randament).
 
 ## Recapitulare
 

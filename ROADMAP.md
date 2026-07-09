@@ -96,6 +96,30 @@ Informației**.
       (gimnaziu OMEN 3393/2017; liceu IX–X OMECI 5099/2009; XI–XII mat-info) + notă despre reforma liceală
 - [x] `npm run docs:build` fără erori; ieșirile problemelor de cod validate pe compilatorul real
 
+## Pasul 9 — Aprofundare didactică: explicații, corelații, breakdown-uri de cod
+- [x] **Exemple „pas cu pas"** (tabele de execuție) la temele științifice: inserție și căutare binară
+      (01), arborele de apeluri backtracking + arborele de recursie merge sort + tabela LIS (03),
+      inserarea în listă + BST construit din inserări (04), BFS + Dijkstra + Kruskal pe exemple numerice (05)
+- [x] **Intuiție „de ce funcționează"**: argumentul de corectitudine la inserție/greedy, contraexemplu
+      greedy la rucsacul discret, Fibonacci naiv vs. dinamic, de unde vine O(n log n)
+- [x] **Ghid de decizie** „cum recunoști metoda potrivită" (secțiunea 3.6 la Metode de programare)
+- [x] Completări punctuale: implementarea **cozii** (04), formule de numărare la grafuri (suma gradelor,
+      nr. maxim de muchii), matrice/liste de adiacență pe exemplul de lucru, ciclul fetch–decode–execute
+      și unități de măsură (07), procese/multitasking + căi absolute/relative + metacaractere (08),
+      referințe absolute/relative pas cu pas + COUNTIF/SUMIF (09), „ce se întâmplă când tastezi un URL" (10),
+      ordinea logică de evaluare SELECT + normalizare pe exemplu + tipuri de JOIN (06), stiva de apeluri
+      la recursivitate + capcane numerice + polimorfism „la lucru" (02)
+- [x] Secțiune nouă **„Conexiuni cu alte teme"** pe toate cele 10 teme științifice + cele 3 de metodică
+      (corelații interne cu linkuri: coadă↔BFS, DFS↔backtracking, BST↔căutare binară, rețea↔graf,
+      struct↔înregistrare, IF tabelar↔decizie etc.)
+- [x] Metodică aprofundată: **proiect de lecție complet** („Căutarea binară", cl. a X-a) și exemple
+      intra/inter/transdisciplinare (01), metode aplicate pe conținut informatic + diferențiere (02),
+      **matricea de specificații** + barem detaliat pe criterii + metode alternative concretizate (03)
+- [x] Corectat: „conturi" → „conținuturi" (metodica 01); ancoră link divide et impera (algoritmi 01)
+- [x] Verificare statică: toate linkurile interne noi țintesc pagini existente; containerele `:::`
+      sunt echilibrate pe toate paginile
+- [ ] `npm run docs:build` — **de rulat pe o mașină cu Node.js** (npm indisponibil pe sistemul curent)
+
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`
   (vezi `STRUCTURA-CONTINUT.md`).

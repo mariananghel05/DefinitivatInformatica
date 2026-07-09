@@ -69,6 +69,17 @@ Vom folosi acest **graf neorientat** cu 5 noduri și muchiile `{1,2}`, `{1,3}`, 
   mulțimi (nu în interiorul uneia). Ex.: elevi ↔ discipline.
 - **Graf turneu** — un graf complet ale cărui muchii au primit **o orientare** (model de „toți joacă cu toți").
 
+#### Formule de numărare (apar constant în subiecte)
+
+- **Suma gradelor** = `2·m` (fiecare muchie contribuie la gradele a două noduri) ⇒ numărul nodurilor de
+  grad **impar** este întotdeauna **par**.
+- **Numărul maxim de muchii** într-un graf neorientat cu `n` noduri: `n(n−1)/2` (graful complet `Kₙ`).
+- **Numărul grafurilor neorientate** distincte cu `n` noduri fixate: `2^(n(n−1)/2)` — fiecare muchie
+  posibilă „există sau nu".
+- Un **arbore** cu `n` noduri are exact `n − 1` muchii; orice graf **conex** are cel puțin `n − 1` muchii.
+
+*Verificare pe exemplul de lucru:* `m = 5` muchii, iar suma gradelor este `2 + 2 + 3 + 2 + 1 = 10 = 2·5`. ✓
+
 ### 5.2. Metode de reprezentare
 
 ```cpp
@@ -85,6 +96,21 @@ vector<int> adj[100];
 |---|---|---|
 | Matrice de adiacență | O(n²) | grafuri dense, test rapid muchie |
 | Liste de adiacență | O(n + m) | grafuri rare, parcurgeri |
+
+**Pe exemplul de lucru** (muchiile `{1,2}, {1,3}, {2,3}, {3,4}, {4,5}`):
+
+```text
+Matricea de adiacență               Listele de adiacență
+     1  2  3  4  5
+1  [ 0  1  1  0  0 ]                1: 2, 3
+2  [ 1  0  1  0  0 ]                2: 1, 3
+3  [ 1  1  0  1  0 ]                3: 1, 2, 4
+4  [ 0  0  1  0  1 ]                4: 3, 5
+5  [ 0  0  0  1  0 ]                5: 4
+```
+
+Observații utile la itemi: matricea unui graf **neorientat** este **simetrică** față de diagonala
+principală; suma valorilor de pe linia `i` este `grad(i)`; diagonala conține 0 (fără bucle).
 
 ### 5.3. Parcurgerea grafurilor
 
@@ -114,6 +140,23 @@ void dfs(int x) {
 
 - **BFS** găsește **distanțe minime** (în număr de muchii) într-un graf neponderat.
 - **DFS** este util la **componente conexe**, cicluri, sortare topologică.
+
+**Exemplu pas cu pas — BFS din nodul 1** (pe exemplul de lucru, vecinii luați în ordine crescătoare):
+
+| Pas | Nod extras din coadă | Vecini nevizitați adăugați | Coada după pas |
+|---|---|---|---|
+| 1 | 1 | 2, 3 | 2, 3 |
+| 2 | 2 | — (3 e deja marcat) | 3 |
+| 3 | 3 | 4 | 4 |
+| 4 | 4 | 5 | 5 |
+| 5 | 5 | — | (goală) |
+
+Ordinea de vizitare: `1, 2, 3, 4, 5` — nodurile apar în ordinea **distanței** față de start (întâi cele
+la o muchie, apoi la două ș.a.m.d.), pentru că o **coadă** procesează nodurile în ordinea descoperirii.
+
+**DFS din nodul 1** merge „în adâncime" cât poate înainte să revină: `1 → 2 → 3 → 4 → 5`. Pe alte grafuri
+cele două ordini diferă vizibil; regula de reținut: **BFS = coadă** (strat cu strat), **DFS =
+stivă/recursie** (cât mai adânc, apoi revenire — același mecanism ca la backtracking).
 
 ### 5.4. Conexitate
 
@@ -155,6 +198,21 @@ vector<int> dijkstra(int start, int n, vector<vector<pair<int,int>>>& g) {
     return d;
 }
 ```
+
+::: details Exemplu pas cu pas — Dijkstra din nodul 1
+Graf ponderat cu muchiile: `1–2 (cost 4)`, `1–3 (cost 1)`, `3–2 (cost 2)`, `2–4 (cost 5)`, `3–4 (cost 8)`.
+
+| Pas | Nod finalizat | d[1] | d[2] | d[3] | d[4] | Ce s-a relaxat |
+|---|---|---|---|---|---|---|
+| start | — | 0 | ∞ | ∞ | ∞ | — |
+| 1 | **1** | 0 | 4 | 1 | ∞ | vecinii lui 1: d[2] = 4, d[3] = 1 |
+| 2 | **3** (d minim) | 0 | **3** | 1 | 9 | prin 3: d[2] = 1 + 2 = 3 < 4 ✓; d[4] = 1 + 8 = 9 |
+| 3 | **2** | 0 | 3 | 1 | **8** | prin 2: d[4] = 3 + 5 = 8 < 9 ✓ |
+| 4 | **4** | 0 | 3 | 1 | 8 | — |
+
+Drumul minim `1 → 4` costă **8** (traseul 1 → 3 → 2 → 4). Observă pasul 2: deși muchia directă `1–2`
+are costul 4, ocolul prin 3 e mai ieftin — această „relaxare" repetată este inima algoritmului.
+:::
 
 - **Dijkstra** — sursă unică, costuri **nenegative**.
 - **Roy–Floyd (Floyd–Warshall)** — drumuri minime între **toate perechile**, O(n³):
@@ -198,6 +256,12 @@ int kruskal(int n, vector<Muchie>& m) {
 }
 ```
 
+**Cum „gândește" Kruskal:** ia muchiile de la cea mai ieftină la cea mai scumpă și acceptă o muchie doar
+dacă **nu închide un ciclu** (adică unește două „păduri" diferite — de aici structura union-find). Se
+oprește natural după acceptarea a `n − 1` muchii. Pe graful din exemplul Dijkstra: acceptă `1–3 (1)` și
+`3–2 (2)`, respinge `1–2 (4)` (ar închide ciclul 1–3–2), acceptă `2–4 (5)` → arbore parțial de cost
+minim **1 + 2 + 5 = 8**.
+
 - **Arbori binari speciali:** arbore binar **complet**, **de căutare** (BST) și **heap** (părintele ≥/≤ copiii).
 
 ## 2. Competențe vizate
@@ -235,6 +299,23 @@ tablă; identificarea componentelor conexe; aplicarea Kruskal pe o hartă de „
 - confuzia **hamiltonian** (vârfuri) ↔ **eulerian** (muchii);
 - la matricea de adiacență, uitarea simetriei la grafuri **neorientate**.
 :::
+
+## Conexiuni cu alte teme
+
+- **BFS folosește coada, DFS folosește stiva/recursivitatea** — structurile dinamice de la
+  [Alocarea dinamică](/stiintific/04-alocare-dinamica); tot acolo sunt detaliați arborii binari,
+  cazul particular cel mai studiat de arbore.
+- **DFS și backtracking** sunt același tipar de explorare cu revenire, iar **Dijkstra, Prim și Kruskal**
+  sunt algoritmi greedy care chiar garantează optimul — vezi
+  [Metode de programare](/stiintific/03-metode-programare).
+- O **rețea de calculatoare** este un graf (dispozitive = noduri, legături = muchii), iar rutarea
+  pachetelor este o problemă de drum de cost minim — vezi
+  [Rețele de calculatoare](/stiintific/10-retele-de-calculatoare).
+- Modelul **rețea** al bazelor de date este un graf de înregistrări
+  ([Baze de date](/stiintific/06-baze-de-date)); web-ul, cu paginile legate prin linkuri, este un graf
+  **orientat** uriaș.
+- Complexitățile parcurgerilor (O(n + m) pe liste, O(n²) pe matrice) aplică analiza de la
+  [Algoritmi](/stiintific/01-algoritmi).
 
 ## Recapitulare
 

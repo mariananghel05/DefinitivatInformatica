@@ -42,6 +42,20 @@ La copierea unei formule, o referință **relativă** (`A1`) se ajustează, iar 
 rămâne fixă. Este una dintre cele mai utile (și mai greșite) noțiuni de la calcul tabelar.
 :::
 
+**Exemplu pas cu pas:** în `D2` scriem `=B2*$C$1` (prețul din `B2` înmulțit cu cursul valutar fixat în
+`C1`), apoi copiem formula în jos pe coloană:
+
+| Celulă | Formula după copiere | Ce s-a ajustat |
+|---|---|---|
+| `D2` | `=B2*$C$1` | formula originală |
+| `D3` | `=B3*$C$1` | `B2` → `B3` (relativă); `$C$1` neschimbată (absolută) |
+| `D4` | `=B4*$C$1` | la fel — cursul rămâne „ancorat" |
+
+Fără `$`, formula copiată în `D3` ar fi devenit `=B3*C2` — eroarea clasică. Alte funcții utile, cu
+**criteriu**: `=COUNTIF(D2:D30;">=5")` (câți elevi au cel puțin 5), `=SUMIF(A2:A30;"11A";D2:D30)`
+(suma doar pentru clasa 11A). Decizia din `IF` se poate **imbrica**:
+`=IF(D2>=9;"excelent";IF(D2>=5;"admis";"respins"))` — exact structura `if … else if … else` din C++.
+
 ### 9.3. Editoare de prezentări
 
 Aplicații pentru crearea prezentărilor cu diapozitive (ex. **Microsoft PowerPoint**,
@@ -92,6 +106,20 @@ elevii calculează media cu `AVERAGE` și clasifică cu `IF`.
 - slide-uri **supraîncărcate** cu text;
 - formatare manuală repetată în loc de **stiluri** (la procesorul de text).
 :::
+
+## Conexiuni cu alte teme
+
+- `IF` din calcul tabelar este instrucțiunea de **decizie**, iar copierea unei formule pe o coloană
+  aplică implicit o **structură repetitivă** — aceleași concepte de la
+  [Algoritmi](/stiintific/01-algoritmi) și [C++](/stiintific/02-limbaje-programare); o foaie de calcul
+  este, în fond, o **matrice**.
+- Sortarea și filtrarea datelor din foile de calcul folosesc algoritmii de
+  [sortare și căutare](/stiintific/01-algoritmi).
+- **Îmbinarea corespondenței** (mail merge) unește un document cu o sursă de date tabelară — puntea
+  directă spre [Baze de date](/stiintific/06-baze-de-date).
+- Documentele colaborative (Google Docs/Sheets) sunt servicii web găzduite în cloud — vezi
+  [Rețele de calculatoare](/stiintific/10-retele-de-calculatoare); folosirea lor la clasă este
+  discutată la [Strategii didactice](/metodica/02-strategii-didactice).
 
 ## Recapitulare
 

@@ -33,6 +33,19 @@ int maximActivitati(vector<Activitate> a) {
 }
 ```
 
+**De ce e corectă alegerea „cel mai devreme sfârșit"?** Activitatea care se termină prima lasă **cel mai
+mult loc** pentru cele rămase; orice soluție optimă poate fi transformată, schimb cu schimb, într-una
+care începe cu ea (argument „de schimb"). Acesta este tipul de justificare cerut când argumentezi
+oportunitatea metodei greedy.
+
+::: details Contraexemplu — de ce greedy NU merge la rucsacul discret
+Rucsac de capacitate **10**; obiecte (greutate, valoare): A(6, 30), B(5, 20), C(5, 20).
+Raportul valoare/greutate: A = 5, B = C = 4 ⇒ greedy alege **A**, apoi B și C nu mai încap → valoare **30**.
+Soluția optimă este însă **B + C** → valoare **40**. Alegerea optimă local (A) a stricat optimul global —
+de aceea rucsacul **discret** se rezolvă cu programare dinamică, iar doar cel **continuu** (obiectele se
+pot fracționa) cu greedy. Un contraexemplu de acest fel este cel mai convingător argument și la clasă.
+:::
+
 ### 3.2. Metoda Backtracking
 
 **Idee:** construiește soluția **element cu element**; la fiecare nivel încearcă valori posibile, iar
@@ -68,6 +81,31 @@ void back(int k) {
 }
 ```
 
+**Componentele oricărui backtracking** (le regăsești în orice problemă de acest tip):
+1. **soluția** — un vector `st[1..n]` construit element cu element;
+2. **mulțimea valorilor candidate** pentru fiecare poziție (aici `1..n`);
+3. **condiția de continuare**, testată *înainte* de coborâre (aici: valoarea să nu fie deja folosită);
+4. **condiția de soluție finală** (aici `k > n`) și **revenirea** — refacerea stării (`folosit[val] = false`).
+
+**Arborele de apeluri pentru n = 3** (coborârea = o alegere, urcarea = revenirea „backtrack"):
+
+```text
+back(1)
+├── st[1]=1 ── back(2)
+│   ├── st[2]=2 ── back(3) ── st[3]=3 → soluția 1 2 3
+│   └── st[2]=3 ── back(3) ── st[3]=2 → soluția 1 3 2
+├── st[1]=2 ── back(2)
+│   ├── st[2]=1 ── back(3) ── st[3]=3 → soluția 2 1 3
+│   └── st[2]=3 ── back(3) ── st[3]=1 → soluția 2 3 1
+└── st[1]=3 ── back(2)
+    ├── st[2]=1 ── back(3) ── st[3]=2 → soluția 3 1 2
+    └── st[2]=2 ── back(3) ── st[3]=1 → soluția 3 2 1
+```
+
+După fiecare soluție afișată, algoritmul **urcă** în arbore și încearcă următoarea valoare disponibilă —
+exact acest mecanism de revenire dă numele metodei. Numărul frunzelor este `n! = 6`, de unde și
+complexitatea exponențială.
+
 ### 3.3. Divide et impera
 
 **Idee (trei pași):** **împarte** problema în subprobleme independente de același tip, **rezolvă**
@@ -94,10 +132,47 @@ void mergeSort(vector<int>& v, int st, int dr) {
 }
 ```
 
+**De unde vine O(n log n)?** Arborele de descompunere are **log₂ n niveluri** (înjumătățim mereu), iar pe
+fiecare nivel interclasările costă **în total O(n)** — deci `n` operații × `log n` niveluri:
+
+```text
+nivel 0:            [5 2 9 1 6 3]              → o interclasare de 6 elemente
+nivel 1:        [5 2 9]      [1 6 3]           → interclasări de 3 + 3 elemente
+nivel 2:      [5 2] [9]    [1 6] [3]           → interclasări de 2 + 2 elemente
+nivel 3:     [5] [2]      [1] [6]              → cazuri de bază (un element = sortat)
+rezultat:           [1 2 3 5 6 9]
+```
+
+> **Căutarea binară** este tot divide et impera — dar „degenerat": împarte în două, rezolvă **o singură**
+> subproblemă și nu are pas de combinare; de aceea costă doar O(log n). Pasul de „combinare" al lui
+> merge sort este exact **interclasarea** de la [Algoritmi](/stiintific/01-algoritmi).
+
 ### 3.4. Programarea dinamică
 
 **Idee:** rezolvă probleme cu **subprobleme care se suprapun** și **substructură optimă**, memorând
 rezultatele subproblemelor (tabelare) ca să **nu le recalculeze**. Transformă exponențialul în polinomial.
+
+**De ce „memorare"? Exemplul-tip: șirul lui Fibonacci.** Recursivitatea directă recalculează aceleași
+valori de un număr exponențial de ori (`fib(5)` apelează `fib(3)` de 2 ori, `fib(2)` de 3 ori):
+
+```cpp
+long long fibNaiv(int n) {                    // O(2ⁿ) — recalculează totul
+    if (n <= 1) return n;
+    return fibNaiv(n - 1) + fibNaiv(n - 2);
+}
+
+long long fibDinamic(int n) {                 // O(n) — fiecare valoare, calculată o singură dată
+    vector<long long> f(n + 1);
+    f[0] = 0; f[1] = 1;
+    for (int i = 2; i <= n; ++i)
+        f[i] = f[i - 1] + f[i - 2];           // folosim rezultatele deja memorate
+    return f[n];
+}
+```
+
+**Divide et impera vs. programare dinamică:** ambele descompun problema, dar la divide et impera
+subproblemele sunt **independente** (nu se repetă), pe când la programarea dinamică ele **se suprapun**
+— de aceea merită memorate într-o tabelă.
 
 **Aplicații clasice:** **subșir crescător de lungime maximă**, **rucsacul discret (0/1)**,
 **cel mai lung subșir comun** (LCS).
@@ -118,6 +193,23 @@ int lis(const vector<int>& v) {
 }
 ```
 
+::: details Exemplu pas cu pas — LIS pe șirul [3, 1, 4, 1, 5, 9, 2, 6]
+| i | v[i] | anteriori mai mici decât v[i] | dp[i] = cel mai bun dp[j] + 1 |
+|---|---|---|---|
+| 0 | 3 | — | 1 |
+| 1 | 1 | — | 1 |
+| 2 | 4 | v[0]=3, v[1]=1 | dp[0] + 1 = **2** |
+| 3 | 1 | — | 1 |
+| 4 | 5 | v[0], v[1], v[2], v[3] | dp[2] + 1 = **3** |
+| 5 | 9 | toți anteriorii | dp[4] + 1 = **4** |
+| 6 | 2 | v[1]=1, v[3]=1 | dp[1] + 1 = 2 |
+| 7 | 6 | v[0], v[1], v[2], v[3], v[4], v[6] | dp[4] + 1 = **4** |
+
+Rezultat: **4** (de exemplu subșirul 3, 4, 5, 9 sau 3, 4, 5, 6). Observă principiul: `dp[i]` se
+calculează o singură dată, **numai** din valori `dp[j]` deja finalizate — ordinea de completare a
+tabelei este esențială.
+:::
+
 ### 3.5. Generarea elementelor combinatoriale
 
 Prin backtracking se generează: **permutări**, **aranjamente**, **combinări**, **submulțimi**,
@@ -129,6 +221,19 @@ Prin backtracking se generează: **permutări**, **aranjamente**, **combinări**
 | Aranjamente | n!/(n−k)! | back pe k poziții, valori nefolosite |
 | Combinări | n!/(k!(n−k)!) | back crescător, fără repetare |
 | Submulțimi | 2ⁿ | pentru fiecare element: în/în afara mulțimii |
+
+### 3.6. Cum recunoști metoda potrivită? (ghid de decizie)
+
+| Semnale în enunț | Metoda probabilă | Întrebarea de verificare |
+|---|---|---|
+| „numărul maxim/minim de…", alegeri succesive care nu se mai revizuiesc | **Greedy** | pot demonstra că optimul local nu strică optimul global? |
+| „toate soluțiile…", „câte modalități…", soluție = vector cu restricții | **Backtracking** | am condiții de continuare care taie devreme ramurile moarte? |
+| problema se sparge în subprobleme **independente** de același tip | **Divide et impera** | am caz de bază + pas de combinare? |
+| „optim" + subprobleme care **se repetă** (rucsac discret, subșiruri) | **Programare dinamică** | pot defini `dp[...]` și relația de recurență? |
+
+Aceeași problemă poate apărea în mai multe „haine": **rucsacul continuu** → greedy; **rucsacul discret**
+→ programare dinamică; **generarea tuturor încărcărilor posibile** → backtracking. La examen se punctează
+explicit *argumentarea oportunității* metodei alese, nu doar implementarea.
 
 ## 2. Competențe vizate
 
@@ -166,6 +271,19 @@ divide et impera.
 - la **programare dinamică**, ordine greșită de completare a tabelei → se folosesc valori încă necalculate;
 - omiterea **cazului de bază** la divide et impera.
 :::
+
+## Conexiuni cu alte teme
+
+- **Merge sort** este [interclasarea](/stiintific/01-algoritmi) pusă într-un schelet divide et impera,
+  iar **căutarea binară** este tot divide et impera — legătura directă cu tema *Algoritmi*.
+- Toate metodele se sprijină pe **recursivitate** — mecanismul stivei de apeluri este explicat la
+  [Limbaje de programare](/stiintific/02-limbaje-programare) și la
+  [Alocarea dinamică](/stiintific/04-alocare-dinamica).
+- **Backtracking și DFS** sunt același tipar de explorare cu revenire — vezi
+  [Teoria grafurilor](/stiintific/05-teoria-grafurilor); tot acolo, **Dijkstra, Prim și Kruskal** sunt
+  algoritmi greedy la care alegerea locală chiar garantează optimul global.
+- Didactic: compararea metodelor pe aceeași problemă este un **studiu de caz** tipic — vezi
+  [Strategii didactice](/metodica/02-strategii-didactice).
 
 ## Recapitulare
 

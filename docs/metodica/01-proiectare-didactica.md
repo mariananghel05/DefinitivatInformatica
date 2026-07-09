@@ -20,7 +20,7 @@ românesc este **centrat pe competențe**.
 | Document | Rol |
 |---|---|
 | **Planul-cadru de învățământ** | disciplinele și numărul de ore pe an/săptămână |
-| **Programa școlară** | competențe + conturi + sugestii metodologice pentru o disciplină |
+| **Programa școlară** | competențe + conținuturi + sugestii metodologice pentru o disciplină |
 | **Manualul școlar** | resursă pentru elev, conform programei |
 | **Auxiliare didactice** | caiete, culegeri, ghiduri, software educațional |
 
@@ -69,6 +69,17 @@ Proiectul de lecție
 - **Interdisciplinar** — conexiuni între discipline (ex. informatică + matematică la algoritmi numerici).
 - **Transdisciplinar** — teme integratoare, dincolo de granițele disciplinelor (ex. un proiect STEM).
 
+**Exemple concrete la informatică** (utilizabile direct într-un răspuns de examen):
+
+| Demers | Exemplu |
+|---|---|
+| intradisciplinar | [căutarea binară](/stiintific/01-algoritmi) presupune un șir **sortat** ⇒ lecția se leagă explicit de sortări; interclasarea revine ca pas al lui merge sort la [metode de programare](/stiintific/03-metode-programare) |
+| interdisciplinar | [grafurile](/stiintific/05-teoria-grafurilor) modelează hărți (geografie) și rețele sociale; [calculul tabelar](/stiintific/09-aplicatii-specializate) prelucrează date din fizică sau economie |
+| transdisciplinar | proiectul „site-ul clasei" — [HTML](/stiintific/10-retele-de-calculatoare) + design + comunicare + drepturi de autor ([SO](/stiintific/08-sisteme-de-operare)) |
+
+De altfel, fiecare temă din acest curs se încheie cu o secțiune **„Conexiuni cu alte teme"** — o sursă
+gata făcută de corelații intradisciplinare pentru proiectare.
+
 ### 1.5. Oferte educaționale (CDS/CDL)
 
 Profesorul poate **elabora opționale** (programă de opțional cu argument, competențe, conținuturi,
@@ -94,12 +105,42 @@ sugestii de evaluare), valorificând specificul disciplinei și nevoile elevilor
 moment organizatoric → captarea atenției → anunțarea competențelor → dirijarea învățării → obținerea
 performanței → asigurarea feedbackului → evaluare → temă.
 
+**Model dezvoltat — proiect de lecție** „Căutarea binară" (clasa a X-a, lecție mixtă, 50 min).
+Competența specifică vizată: 3.1 — *aplicarea algoritmilor fundamentali* (căutare în date sortate);
+conținutul științific complet: [Algoritmi → Căutare](/stiintific/01-algoritmi).
+
+| Moment (durată) | Activitatea profesorului | Activitatea elevilor | Metode / mijloace |
+|---|---|---|---|
+| organizatoric (2′) | notează absențele, pregătește proiectorul | își pregătesc mediul de lucru | — |
+| captarea atenției (5′) | jocul „ghicește numărul de la 1 la 100 din cât mai puține întrebări" | propun strategii; descoperă înjumătățirea | problematizare, joc didactic |
+| reactualizare (5′) | întreabă: cum căutam secvențial? câți pași în cel mai rău caz? | răspund, compară | conversație euristică |
+| anunțarea temei (2′) | anunță competența: căutarea eficientă în șiruri sortate | notează titlul | expunere |
+| dirijarea învățării (15′) | trasează algoritmul pe un exemplu (tabel `stanga`/`dreapta`/`mijloc`); scrie codul împreună cu clasa | completează tabelul de execuție, formulează condiția de oprire | modelare, demonstrație, algoritmizare |
+| obținerea performanței (12′) | dă spre rezolvare: numărul de pași pe 1000 de elemente; cazul „valoare inexistentă" | implementează și testează la calculator | exercițiu, IAC |
+| feedback + evaluare (6′) | aplică 3 itemi rapizi (A/F, răspuns scurt) | răspund individual | test scurt formativ |
+| tema (3′) | cere adaptarea algoritmului la un șir sortat descrescător | notează tema | — |
+
+Observă corelarea pe fiecare rând: **activitate ↔ competență ↔ metodă ↔ evaluare** — exact criteriul
+după care se punctează proiectul de lecție la subiectul de metodică.
+
 ::: warning Greșeli frecvente la examen
 - confundarea **planificării calendaristice** cu **proiectul unității de învățare**;
 - proiect de lecție **fără competențe** clar formulate sau fără **activități de învățare** asociate;
 - folosirea terminologiei vechi („obiective operaționale") în loc de **competențe**;
 - citarea Legii 1/2011 în locul **Legii 198/2023** (în vigoare).
 :::
+
+## Conexiuni cu alte teme
+
+- Competențele generale și specifice invocate în proiectare sunt listate integral la
+  [Competențe din programele școlare](/competente-scolare), iar conținuturile pe clase la
+  [Programa pe clase](/programa-clase).
+- Metodele și mijloacele din proiect se aleg după criteriile de la
+  [Strategii didactice](/metodica/02-strategii-didactice); rubrica „Evaluare" se construiește cu
+  instrumentarul de la [Evaluarea randamentului](/metodica/03-evaluare-randament).
+- Fiecare temă științifică din curs are secțiunea **„Abordare metodică"** — conținut gata structurat
+  pentru planificări și proiecte de lecție (de la [Algoritmi](/stiintific/01-algoritmi) până la
+  [Rețele](/stiintific/10-retele-de-calculatoare)).
 
 ## Recapitulare
 

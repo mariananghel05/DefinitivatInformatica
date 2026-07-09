@@ -47,6 +47,18 @@ este **TCP/IP**.
 - **transfer de fișiere** (FTP), **stocare în cloud**;
 - **aplicații colaborative** — documente partajate, platforme de **e-learning**, videoconferință.
 
+**Ce se întâmplă când tastezi `https://www.edu.ro` în browser?** — traseul complet, pas cu pas:
+
+1. browserul întreabă serverul **DNS**: „ce adresă IP are `www.edu.ro`?" și primește adresa numerică;
+2. se deschide o **conexiune TCP** cu serverul de la acea adresă (criptată **TLS**, fiindcă e HTTPS);
+3. browserul trimite o **cerere HTTP** (`GET /index.html`);
+4. serverul răspunde cu documentul **HTML**, apoi browserul cere și resursele legate (CSS, imagini);
+5. browserul **construiește pagina** din structura HTML și o afișează.
+
+Modelul este **client–server**: clientul (browserul) cere, serverul răspunde. Fiecare dispozitiv este
+identificat printr-o **adresă IP** (IPv4: patru numere între 0 și 255, de ex. `192.168.1.10`; IPv6
+extinde masiv spațiul de adrese).
+
 ### 10.4. Limbajul HTML și editarea paginilor web
 
 **HTML** (HyperText Markup Language) descrie **structura** unei pagini web prin **etichete (taguri)**.
@@ -82,6 +94,13 @@ este **TCP/IP**.
 > **HTML** definește **structura**, **CSS** definește **aspectul** (stilul), iar **JavaScript** adaugă
 > **interactivitate**. La gimnaziu/liceu se introduce de regulă HTML de bază (eventual cu CSS simplu).
 
+::: tip Documentul HTML este un arbore
+Etichetele imbricate formează o ierarhie: `<html>` conține `<head>` și `<body>`, care conțin la rândul
+lor alte elemente — exact structura de **arbore cu rădăcină** de la
+[Alocarea dinamică](/stiintific/04-alocare-dinamica). De aceea o etichetă trebuie închisă **înăuntrul**
+părintelui ei: `<p><b>text</b></p>` este corect, `<p><b>text</p></b>` nu.
+:::
+
 ## 2. Competențe vizate
 
 - **explicarea conceptelor de rețea** (tipuri, funcții, protocoale);
@@ -116,6 +135,20 @@ browser la server; construirea unei pagini web personale cu titlu, paragraf, lis
 - confuzia **LAN** ↔ **WAN**;
 - ideea că „Internet" = „web" (web-ul este **doar un serviciu** al Internetului).
 :::
+
+## Conexiuni cu alte teme
+
+- O rețea **este un graf**: dispozitive = noduri, legături = muchii; alegerea traseului unui pachet este
+  o problemă de **drum de cost minim** (Dijkstra) — vezi
+  [Teoria grafurilor](/stiintific/05-teoria-grafurilor).
+- Numele de domenii formează o ierarhie (rădăcină → `.ro` → `edu.ro`) — un **arbore**; pagina HTML,
+  la fel ([Alocarea dinamică](/stiintific/04-alocare-dinamica)).
+- Placa de rețea și modemul sunt periferice de la
+  [Arhitectura sistemelor](/stiintific/07-arhitectura-sistemelor), gestionate prin drivere de
+  [sistemul de operare](/stiintific/08-sisteme-de-operare).
+- Platformele de e-learning și documentele colaborative de la
+  [Aplicații specializate](/stiintific/09-aplicatii-specializate) sunt servicii web — folosirea lor la
+  clasă este tratată la [Strategii didactice](/metodica/02-strategii-didactice).
 
 ## Recapitulare
 

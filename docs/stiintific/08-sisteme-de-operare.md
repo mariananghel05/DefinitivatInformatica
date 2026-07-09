@@ -27,6 +27,12 @@ asigură execuția aplicațiilor. Exemple: **Windows**, **Linux**, **macOS**, **
 | **Interfața cu utilizatorul** | GUI / CLI |
 | **Securitate** | conturi, parole, drepturi de acces |
 
+**Cum reușește un singur procesor să ruleze „simultan" zeci de programe?** Un **proces** este un program
+în execuție (cod + memorie + resurse alocate). Sistemul de operare comută procesele pe procesor la
+intervale de ordinul milisecundelor (**planificare** / *time-sharing*), astfel încât fiecare pare să
+ruleze continuu — acesta este multitasking-ul. Un proces trece prin stări: **în execuție** (deține CPU),
+**gata de execuție** (așteaptă CPU) și **în așteptare** (blocat — de exemplu până sosesc date de la disc).
+
 ### 8.3. Programe și accesorii livrate cu SO
 
 - editoare de text simple, calculator, vizualizatoare de imagini;
@@ -49,6 +55,13 @@ C:\
     └── TIC\
         └── prezentare.pptx
 ```
+
+Pe structura de mai sus: calea **absolută** a fișierului `tema1.cpp` este
+`C:\Scoala\Informatica\tema1.cpp` (pornește din rădăcină); dacă ne aflăm deja în folderul `Scoala`,
+calea **relativă** este `Informatica\tema1.cpp`. La căutare se folosesc **metacaracterele**: `*` (orice
+succesiune de caractere — `*.cpp` înseamnă toate sursele C++) și `?` (exact un caracter — `tema?.cpp`).
+Structura de foldere este un **arbore cu rădăcină** — aceeași noțiune de la
+[Alocarea dinamică](/stiintific/04-alocare-dinamica).
 
 ### 8.5. Arhivarea fișierelor
 
@@ -105,6 +118,17 @@ discuție de caz despre un atac informatic; clasificarea tipurilor de licențe p
 - confuzia **fișier** ↔ **folder**;
 - ideea că antivirusul oferă protecție 100% (esențiale rămân **backup-ul** și prudența).
 :::
+
+## Conexiuni cu alte teme
+
+- Fișierele citite/scrise din [C++](/stiintific/02-limbaje-programare) (`ifstream`/`ofstream`) sunt
+  gestionate de sistemul de fișiere descris aici; SO alocă fiecărui proces memoria (stivă + heap) de la
+  [Alocarea dinamică](/stiintific/04-alocare-dinamica).
+- SO rulează pe hardware-ul de la [Arhitectura sistemelor](/stiintific/07-arhitectura-sistemelor) și
+  comunică cu perifericele prin **drivere**.
+- Securitatea datelor se completează cu bunele practici online de la
+  [Rețele](/stiintific/10-retele-de-calculatoare) (HTTPS, prudență la descărcări); licențele software
+  privesc și [aplicațiile specializate](/stiintific/09-aplicatii-specializate).
 
 ## Recapitulare
 

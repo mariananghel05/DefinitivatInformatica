@@ -53,11 +53,30 @@ La proba scrisă, se punctează propunerea de metode **centrate pe elev** (activ
 expunerea. Exemplu: la „algoritmi de sortare", *învățarea prin descoperire* + *exercițiul* la calculator.
 :::
 
+**Metodele-cheie, aplicate pe conținut informatic** (mini-scenarii utilizabile la examen):
+
+| Metodă | Mini-scenariu la informatică |
+|---|---|
+| **problematizarea** | „cum găsești un număr între 1 și 100 din maximum 7 întrebări?" → conduce natural la [căutarea binară](/stiintific/01-algoritmi) |
+| **modelarea** | „lanțul uman" pentru [listele înlănțuite](/stiintific/04-alocare-dinamica); desenarea grafurilor pentru [parcurgeri](/stiintific/05-teoria-grafurilor) |
+| **învățarea prin descoperire** | elevii cronometrează două sortări pe 100 000 de numere și „descoperă" complexitatea ([Algoritmi](/stiintific/01-algoritmi)) |
+| **studiul de caz** | aceeași problemă (rucsacul) rezolvată greedy vs. programare dinamică — [Metode de programare](/stiintific/03-metode-programare) |
+| **algoritmizarea** | fixarea tiparului citire → prelucrare → afișare la primele programe ([C++](/stiintific/02-limbaje-programare)) |
+| **învățarea bazată pe proiect** | mini-site [HTML](/stiintific/10-retele-de-calculatoare); baza de date a bibliotecii școlii ([Baze de date](/stiintific/06-baze-de-date)) |
+| **IAC** | testarea imediată a programelor în IDE; medii vizuale cu blocuri la gimnaziu |
+
 ### 2.4. Forme de organizare a activității
 
 - **Frontală** — profesorul lucrează cu întreaga clasă simultan.
 - **Individuală** — fiecare elev lucrează independent (ex. la calculator).
 - **Pe grupe** — elevii colaborează (învățare prin cooperare).
+
+::: tip Diferențierea activității
+Aceeași lecție se adaptează la ritmuri diferite prin **sarcini pe niveluri**: la o lecție de sortare —
+nivel de bază (trasarea algoritmului pe 5 valori), mediu (implementarea corectă), avansat (compararea
+numărului de comparații între două metode). Diferențierea se menționează explicit în proiectul de
+lecție și se punctează la examen.
+:::
 
 ### 2.5. Mijloace de învățământ
 
@@ -102,6 +121,15 @@ informatice, calculatorul este simultan **obiect de studiu** și **mijloc de în
 - enumerarea momentelor lecției **fără a le corela** cu activitățile și competențele;
 - ignorarea specificului informaticii (calculatorul ca **mijloc + obiect** de studiu).
 :::
+
+## Conexiuni cu alte teme
+
+- Strategia aleasă se consemnează în **proiectul de lecție** — modelul complet este la
+  [Proiectarea didactică](/metodica/01-proiectare-didactica).
+- Momentul de evaluare al oricărei lecții folosește itemii și formele de la
+  [Evaluarea randamentului](/metodica/03-evaluare-randament).
+- Fiecare temă din [Tematica științifică](/stiintific/) conține secțiunea **„Abordare metodică"** cu
+  metode, activități și itemi deja corelate cu acest capitol — exemple gata de citat la examen.
 
 ## Recapitulare
 
