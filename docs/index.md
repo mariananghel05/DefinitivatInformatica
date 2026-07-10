@@ -59,6 +59,7 @@ disciplina **Informatică și Tehnologia Informației**. Conținutul urmează fi
 - **[Despre examen](/despre-examen)** — structura probei, condiții de înscriere, notă minimă, calendar și surse oficiale.
 - **[Harta materiei](/harta-materiei)** — cuprinsul complet al programei, cu link către fiecare subiect.
 - **[Conținuturi pe clase (V–XII)](/programa-clase)** — programa fiecărei clase, pe domenii, din programele în vigoare.
+- **[Lecții în practică (V–XII)](/lectii/)** — cum se predă efectiv în școli: instrumente (Scratch → C++), planificarea pe module și lecții dezvoltate (teorie + exerciții cu metodică + particularități).
 - **[Tematica științifică](/stiintific/)** — cele 10 teme de specialitate.
 - **[Metodica predării](/metodica/)** — cele 3 teme de metodică.
 - **[Competențe](/competente-scolare)** — competențele din programele școlare (codurile `1.1`, `2.3` …) și [ale cadrului didactic](/competente-cadru).

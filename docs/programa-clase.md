@@ -2,7 +2,9 @@
 
 > Conținuturile de învățare pentru fiecare clasă, **din programele școlare în vigoare**. Sunt reproduse
 > pe domenii, așa cum apar în programe. Pentru competențele generale și specifice, vezi
-> [Competențe din programele școlare](/competente-scolare).
+> [Competențe din programele școlare](/competente-scolare). Pentru **cum se predau efectiv aceste
+> conținuturi în școli** (instrumente, așezarea pe module, seriile de lecții), vezi modulul
+> [Lecții pe clase — în practică](/lectii/).
 
 ::: info Surse (programe în vigoare)
 - **Gimnaziu (V–VIII):** *Informatică și TIC* — **OMEN nr. 3393/28.02.2017**.
@@ -24,6 +26,13 @@ curent pe [edu.ro](https://www.edu.ro).
 ## Gimnaziu — Informatică și TIC (OMEN 3393/2017)
 
 ### Clasa a V-a
+
+::: tip Cum arată în practică
+Domeniile TIC (1–7) se predau de regulă în **modulele 1–3**, iar **algoritmii (8–11) în modulele 4–5**,
+cu implementare în **Scratch** — fără pseudocod și fără limbaj de programare. Seria de lecții dezvoltată
+(teorie + exerciții cu metodică + particularități): [clasa a V-a](/lectii/#clasa-a-v-a), începând cu
+[Algoritmul — noțiune și proprietăți](/lectii/v-01-algoritmul).
+:::
 
 1. **Norme de ergonomie și de siguranță**
    - Normele de securitate și protecție a muncii în laboratorul de informatică
@@ -62,6 +71,13 @@ curent pe [edu.ro](https://www.edu.ro).
 
 ### Clasa a VI-a
 
+::: tip Cum arată în practică
+Se continuă în **Scratch** (acum și ca aplicație de animație grafică), accentul algoritmic fiind pe
+**structurile repetitive**; apar primele reprezentări formale — **schema logică și pseudocodul**.
+La TIC: PowerPoint și poșta electronică. Planificarea tipică și seria de lecții:
+[clasa a VI-a](/lectii/#clasa-a-vi-a).
+:::
+
 1. **Prezentări**
    - Interfața și instrumentele de bază ale aplicației de prezentări
    - Gestionarea prezentărilor (creare, deschidere, expunere, salvare, închidere)
@@ -88,6 +104,13 @@ curent pe [edu.ro](https://www.edu.ro).
 
 ### Clasa a VII-a
 
+::: tip Cum arată în practică
+Anul **trecerii la C++**: după domeniile TIC (Word, audio-video, aplicații colaborative), în modulele
+3–5 se scrie primul program într-un limbaj real (mediu tipic: Code::Blocks sau un IDE online). Programa
+cere „un limbaj de programare" — practica majoritară este **C++** (continuitate cu liceul); unele școli
+aleg Python. Planificarea tipică și seria de lecții: [clasa a VII-a](/lectii/#clasa-a-vii-a).
+:::
+
 1. **Editor de texte**
    - Interfața și instrumentele aplicației de documente
    - Gestionarea unui document (creare, deschidere, vizualizare, salvare, închidere)
@@ -107,6 +130,12 @@ curent pe [edu.ro](https://www.edu.ro).
    - Implementarea în limbaj de programare a structurilor: liniară, alternativă, repetitive
 
 ### Clasa a VIII-a
+
+::: tip Cum arată în practică
+**Excel**, **HTML** și, la algoritmi, **șiruri de valori în C++** — atenție la particularitatea
+esențială: valorile se prelucrează **pe măsură ce se citesc, fără tablouri** (vectorii apar abia la
+liceu). Planificarea tipică și seria de lecții: [clasa a VIII-a](/lectii/#clasa-a-viii-a).
+:::
 
 1. **Calcul tabelar**
    - Interfața aplicației; structura unui registru (foaie, coloană, rând, celulă, adresă)
@@ -129,6 +158,12 @@ curent pe [edu.ro](https://www.edu.ro).
 
 ### Clasa a IX-a (OMECI 5099/2009)
 
+::: tip Cum arată în practică
+Accent pe **gândirea algoritmică în pseudocod** (convențiile de la bacalaureat), dublată de
+implementarea în **C++**; grosul anului îl ocupă **algoritmii elementari** (cifrele unui număr,
+divizibilitate, secvențe de valori). Seria de lecții: [clasa a IX-a](/lectii/#clasa-a-ix-a).
+:::
+
 1. **Informatica și societatea**
    - Definirea informaticii ca știință; rolul informaticii în societate
    - Studii de caz ale unor situații sociale, în abordare informatizată
@@ -149,6 +184,13 @@ curent pe [edu.ro](https://www.edu.ro).
 
 ### Clasa a X-a (OMECI 5099/2009)
 
+::: tip Cum arată în practică
+Anul „structurării datelor": **tablouri uni- și bidimensionale**, **fișiere text** și **algoritmii
+fundamentali** (căutare, sortare, interclasare) — nucleul subiectelor de bacalaureat. Mediul de lucru
+rămâne C++ (deși programa menționează istoric și Pascal). Seria de lecții:
+[clasa a X-a](/lectii/#clasa-a-x-a).
+:::
+
 1. **Implementarea algoritmilor într-un limbaj de programare**
    - Elemente de bază: structura programelor, vocabular, tipuri simple, constante/variabile/expresii, citire/scriere
    - Structuri de control: liniară, alternativă, repetitive
@@ -166,6 +208,13 @@ curent pe [edu.ro](https://www.edu.ro).
    - Aplicații din viața cotidiană (situația școlară a unui elev, balanță de cheltuieli, salariu, cont bancar)
 
 ### Clasa a XI-a (matematică-informatică)
+
+::: tip Cum arată în practică
+Materia cea mai densă a liceului: **structuri de date** (șiruri de caractere, `struct`, liste/stivă/
+coadă, grafuri) + **metodele de programare** (Divide et Impera, Backtracking) + **subprograme și
+recursivitate**. La specializarea intensiv informatică se adaugă Greedy și programarea dinamică.
+Seria de lecții: [clasa a XI-a](/lectii/#clasa-a-xi-a).
+:::
 
 1. **Structuri de date**
    - Tablouri bidimensionale *
@@ -191,6 +240,13 @@ curent pe [edu.ro](https://www.edu.ro).
 
 Programa este **modulară**. Modulul 1 (**Baze de date**) este **obligatoriu**; celelalte module se aleg
 în funcție de varianta de studiu.
+
+::: tip Cum arată în practică
+Modulul de **baze de date** se lucrează de regulă pe un SGBD real (**MySQL**, uneori Oracle Academy) —
+de la modelul conceptual și normalizare la interogări **SQL** efective; modulele opționale depind de
+oferta școlii (programare web, programare vizuală). Seria de lecții:
+[clasa a XII-a](/lectii/#clasa-a-xii-a).
+:::
 
 **Modulul 1 — Baze de date (obligatoriu):**
 

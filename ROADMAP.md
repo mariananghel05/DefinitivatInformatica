@@ -120,6 +120,36 @@ Informației**.
       sunt echilibrate pe toate paginile
 - [ ] `npm run docs:build` — **de rulat pe o mașină cu Node.js** (npm indisponibil pe sistemul curent)
 
+## Pasul 10 — Modulul „Lecții pe clase — în practică" (V–XII), construit pe loturi
+> Scop: stratul „practica reală din școală" peste programă — instrumente efective (Scratch la V–VI,
+> trecerea la C++ la VII…), planificarea pe **modulele** anului școlar și **serii de lecții** per clasă,
+> fiecare lecție dezvoltată cu șablonul **Lecția (teorie) · Exerciții (cu metodica aplicabilă) · Particularități**.
+
+- [x] Schelet: `docs/lectii/index.md` — catalog complet V–XII (instrumente pe clase, planificare
+      orientativă pe module M1–M5, seriile de lecții per clasă, șablonul paginilor de lecție)
+- [x] `programa-clase.md`: bloc „Cum arată în practică" la fiecare clasă (V–XII) + linkuri spre catalog
+- [x] Navigație: intrare „Lecții în practică (V–XII)" în meniul Programa + sidebar `/lectii/` + link pe
+      pagina principală
+- [x] **Lot 1 — Clasa a V-a, domeniul Algoritmi (5 lecții dezvoltate):** Algoritmul · Date/variabile/expresii ·
+      Structura secvențială · Structura alternativă · Proiecte Scratch
+- [x] Lot 2 — Clasa a V-a, domeniul TIC (7 lecții: ergonomie, sisteme de calcul, arhitectură,
+      dispozitive/unități de măsură, SO/fișiere, Internet/siguranță, editoare grafice)
+- [x] Lot 3 — Clasa a VI-a (10 lecții: prezentări ×3, animații, e-mail, repetitive ×2, schemă logică,
+      pseudocod, proiecte)
+- [x] Lot 4 — Clasa a VII-a (TIC ×4 + programare C++ ×5: primul program, date/citire/afișare, liniară,
+      alternativă, repetitive)
+- [x] Lot 5 — Clasa a VIII-a (Excel ×3, HTML ×2, șiruri de valori C++ ×4)
+- [x] Lot 6 — Clasa a IX-a (9 lecții: societate, etape/algoritm, date, pseudocod, cifre, divizibilitate,
+      secvențe, recurente, eficiență)
+- [x] Lot 7 — Clasa a X-a (10 lecții: C++ bază, structuri, tablouri 1D/2D, fișiere, căutări, sortări,
+      interclasare, matrice, aplicații)
+- [x] Lot 8 — Clasa a XI-a (10 lecții: șiruri de caractere, struct, liste/stivă/coadă, grafuri ×3,
+      subprograme, recursivitate, divide et impera, backtracking)
+- [x] Lot 9 — Clasa a XII-a (7 lecții: entități/relații, normalizare, tabele, chei/integritate,
+      SELECT, DML/DDL, dezvoltare profesională)
+- [x] La fiecare lot: transformarea titlurilor din catalog în linkuri + extinderea sidebar-ului `/lectii/`
+- [x] **TOATE cele 76 de lecții (V–XII) dezvoltate** — modulul „Lecții pe clase" este complet
+
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`
   (vezi `STRUCTURA-CONTINUT.md`).
