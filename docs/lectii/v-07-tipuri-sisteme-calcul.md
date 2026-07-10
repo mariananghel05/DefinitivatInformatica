@@ -5,10 +5,9 @@
 
 ## 1. Lecția (teorie)
 
-**Momente principale în evoluția sistemelor de calcul** — la nivel de poveste, nu de cronologie de
-memorat: calculatoarele de la primele mașini uriașe (o sală întreagă pentru mai puțină putere decât un
-telefon de azi), la calculatorul personal, apoi la dispozitivele mobile de acum. Ideea de reținut:
-**tot mai mici, tot mai rapide, tot mai prezente**.
+Lecția continuă [povestea evoluției](/lectii/v-13-evolutia-sistemelor-calcul) cu întrebarea: *unde
+sunt calculatoarele **azi**, în jurul nostru?* Ideea de reținut din lecția trecută — tot mai mici, tot
+mai rapide, tot mai prezente — se verifică acum pe teren.
 
 **Sisteme de calcul din viața cotidiană:**
 
@@ -29,10 +28,11 @@ Elevii listează toate dispozitivele „cu program" din casa lor și din școal�
 se clasifică la tablă. *De ce așa:* investigația în mediul propriu transformă definiția abstractă în
 recunoaștere concretă; clasificarea colectivă produce chiar tabelul lecției.
 
-**Exercițiul 2 — „Axa timpului"** *(organizator grafic, pe grupe)*
-Grupele primesc cartonașe cu imagini (calculator de cameră întreagă, PC anii '90, laptop, smartphone)
-și le ordonează cronologic, cu un fapt interesant pentru fiecare. *De ce așa:* ordonarea vizuală ține
-locul lecției de istorie „predate"; faptele surprinzătoare (comparația de putere) fac evoluția memorabilă.
+**Exercițiul 2 — „Portretul unui calculator ascuns"** *(analiză pe model)*
+Fiecare grupă primește un sistem încorporat (bancomatul, mașina de spălat, semaforul inteligent) și îi
+face „portretul": ce primește (intrări)? ce decide/prelucrează? ce produce (ieșiri)? *De ce așa:*
+analiza pe schema intrare–prelucrare–ieșire aplică definiția pe cazuri care „nu seamănă a calculator" —
+testul real al înțelegerii; portretele pregătesc direct lecția de arhitectură.
 
 **Exercițiul 3 — „Ce au toate în comun?"** *(conversație euristică)*
 Bancomatul, telefonul și laptopul: ce fac toate? (primesc ceva → prelucrează → afișează/execută ceva).
@@ -54,5 +54,5 @@ următoare despre arhitectură — corelație intradisciplinară construită del
 - Tema de examen corespunzătoare: [Arhitectura sistemelor — tipuri de sisteme de calcul](/stiintific/07-arhitectura-sistemelor).
 - Metodele folosite (investigație, organizator grafic, conversație euristică):
   [Strategii didactice](/metodica/02-strategii-didactice).
-- Lecția anterioară: [Norme de ergonomie și siguranță](/lectii/v-06-norme-ergonomie-siguranta) ·
+- Lecția anterioară: [Evoluția sistemelor de calcul](/lectii/v-13-evolutia-sistemelor-calcul) ·
   Lecția următoare: [Arhitectura unui sistem de calcul](/lectii/v-08-arhitectura-sistem-calcul).

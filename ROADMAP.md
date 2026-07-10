@@ -149,6 +149,11 @@ Informației**.
       SELECT, DML/DDL, dezvoltare profesională)
 - [x] La fiecare lot: transformarea titlurilor din catalog în linkuri + extinderea sidebar-ului `/lectii/`
 - [x] **TOATE cele 76 de lecții (V–XII) dezvoltate** — modulul „Lecții pe clase" este complet
+- [x] Completare la **granularitatea programei** (feedback 10.07.2026 — „toate lecțiile, tot"):
+      **planificări complete pe lecții/ore** pentru V–VIII (fiecare conținut al programei = rând în
+      planificare, cu modulul și pagina dezvoltată) + tabele **„Acoperirea programei"** pentru IX–XII
+      (fiecare domeniu → lecțiile lui); lecții noi: evoluția sistemelor de calcul (V), animații —
+      obiecte și efecte (VI), protecția datelor personale (VI), modulele opționale (XII) → **80 de lecții**
 
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`

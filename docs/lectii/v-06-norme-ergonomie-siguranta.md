@@ -63,5 +63,5 @@ materialul didactic al clasei și dă un prim exercițiu de lucru în echipă, u
 - Ergonomia și siguranța ca temă de examen: [Arhitectura sistemelor](/stiintific/07-arhitectura-sistemelor).
 - Metodele folosite (observare, joc didactic, negociere):
   [Strategii didactice](/metodica/02-strategii-didactice).
-- Lecția următoare: [Tipuri de sisteme de calcul](/lectii/v-07-tipuri-sisteme-calcul) ·
+- Lecția următoare: [Evoluția sistemelor de calcul](/lectii/v-13-evolutia-sistemelor-calcul) ·
   Seria clasei: [clasa a V-a](/lectii/#clasa-a-v-a).
