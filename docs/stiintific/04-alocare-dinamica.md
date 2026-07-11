@@ -39,6 +39,15 @@ delete[] v;                // eliberarea unui vector dinamic
 - folosirea `delete` în loc de `delete[]` la vectori (și invers).
 :::
 
+::: tip `std::vector` — alocarea dinamică „ambalată"
+Tabloul alocat dinamic cu `new int[n]` / `delete[]` are un echivalent modern care face toată gestiunea
+memoriei **automat**: `std::vector<int> v(n);` alocă tot pe heap, poate crește la nevoie (`push_back`)
+și își **eliberează singur** memoria la ieșirea din domeniu — *memory leak*-ul și `delete[]`-ul uitat
+dispar prin construcție. Analog, stiva și coada au variante gata făcute în biblioteca standard:
+`std::stack` și `std::queue`. Implementările manuale de mai jos rămân esențiale didactic — ele arată
+**cum funcționează** mecanismul —, dar în practică vectorul este alegerea implicită.
+:::
+
 ### 4.2. Pointeri — recapitulare
 
 Un **pointer** reține o **adresă de memorie**. Operatorii: `&` (adresa lui), `*` (dereferențiere).

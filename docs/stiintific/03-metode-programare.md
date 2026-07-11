@@ -87,6 +87,9 @@ void back(int k) {
 }
 ```
 
+> Varianta cu `std::vector`: `vector<int> st(n + 1);` și `vector<bool> folosit(n + 1, false);` —
+> dimensionate **exact** la execuție, în locul maximului „ghicit" 20; restul codului rămâne identic.
+
 **Componentele oricărui backtracking** (le regăsești în orice problemă de acest tip):
 1. **soluția** — un vector `st[1..n]` construit element cu element;
 2. **mulțimea valorilor candidate** pentru fiecare poziție (aici `1..n`);

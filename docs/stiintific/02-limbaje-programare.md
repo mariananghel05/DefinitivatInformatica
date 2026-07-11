@@ -86,6 +86,35 @@ int s = 0;
 for (int i = 0; i < n; ++i) s += a[i][i];
 ```
 
+**Varianta modernă — `std::vector`**, tabloul cu dimensiune dinamică din biblioteca standard:
+
+```cpp
+#include <vector>
+using namespace std;
+
+vector<int> v(n);                    // „vector" de n elemente, inițializate cu 0
+vector<int> w;                       // vector gol...
+w.push_back(7);                      // ...care crește la nevoie
+vector<vector<int>> a(n, vector<int>(m, 0));   // matrice n × m, plină de 0
+
+for (int i = 0; i < (int)v.size(); ++i) cin >> v[i];   // accesul: identic cu tabloul
+for (int x : v) cout << x << ' ';                      // parcurgere modernă (range-for)
+```
+
+| Criteriu | Tablou static (`int v[100]`) | `std::vector<int>` |
+|---|---|---|
+| dimensiunea | fixată la compilare („ghicim" un maxim) | exactă, stabilită la execuție; poate crește (`push_back`) |
+| lungimea curentă | ținută separat, într-un `n` | „la purtător": `v.size()` |
+| transmiterea la subprograme | prin adresă, cu `n` alături | prin referință: `vector<int>& v` (sau `const&` la citire) |
+| eliberarea memoriei | — (statică) / manuală la `new[]` | **automată** (își gestionează singur memoria) |
+
+::: tip La examen
+Subiectele oficiale folosesc de regulă **tablouri statice**, dar rezolvările cu `std::vector` sunt
+corecte și adesea mai sigure (dimensiune exactă, fără maxim „ghicit"). Regula de conversie este
+mecanică: antetul `int v[], int n` devine `vector<int>& v`, iar `n` devine `v.size()` — **corpul
+algoritmului rămâne identic**.
+:::
+
 - **Înregistrare (struct)** — grupează date de tipuri diferite.
 
 ```cpp
@@ -278,6 +307,6 @@ intenționate (*debugging*); modularizarea unui program lung în subprograme.
 ## Recapitulare
 
 - Elemente de bază: **tipuri**, **operatori**, **instrucțiuni** (decizie, repetitive, switch).
-- Date structurate: **tablou**, **struct**, **string**; **fișiere text** pentru I/O.
+- Date structurate: **tablou** (static sau dinamic — `std::vector`), **struct**, **string**; **fișiere text** pentru I/O.
 - **Subprograme**: prin valoare/referință, variabile locale/globale, **recursivitate** (caz de bază!).
 - **POO**: abstractizare, încapsulare, moștenire, polimorfism; clase, obiecte, constructori/destructori.

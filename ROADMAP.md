@@ -178,6 +178,12 @@ Informației**.
       optimalității (Bellman) la programarea dinamică
 - [x] **04 Alocare dinamică:** justificarea prin inducție a inordinii crescătoare la BST (invariantul
       în fiecare nod)
+- [x] **Implementări cu `std::vector`** unde e posibil: secțiune dedicată + tabel comparativ tablou
+      static vs. vector (02); sortări/căutări cu vector + regula mecanică de conversie (`int v[], n` →
+      `vector<int>&`, `n` → `v.size()`) și trimiterile la `find`/`binary_search`/`lower_bound` (01);
+      `st`/`folosit` ca vectori la backtracking (03); caseta „vectorul = alocarea dinamică ambalată"
+      + `std::stack`/`std::queue` (04); reprezentări dinamice `vector<vector<int>>` pentru matrice și
+      liste de adiacență + union-find (05)
 
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`

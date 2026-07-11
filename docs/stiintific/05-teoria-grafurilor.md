@@ -85,12 +85,14 @@ Vom folosi acest **graf neorientat** cu 5 noduri și muchiile `{1,2}`, `{1,3}`, 
 
 ```cpp
 // 1) Matricea de adiacență — a[i][j] = 1 dacă există muchie (i, j)
-int a[100][100];
+int a[100][100];                                        // static (maxim „ghicit")
+vector<vector<int>> mat(n + 1, vector<int>(n + 1, 0));  // dinamic: exact (n+1) × (n+1)
 
 // 2) Liste de adiacență — vecinii fiecărui vârf
-vector<int> adj[100];
+vector<int> adj[100];                 // tablou static de vectori
+vector<vector<int>> lista(n + 1);     // varianta complet dinamică
 // adăugare muchie neorientată (x, y):
-// adj[x].push_back(y); adj[y].push_back(x);
+// lista[x].push_back(y); lista[y].push_back(x);
 ```
 
 | Reprezentare | Spațiu | Bun pentru |
@@ -312,7 +314,7 @@ cost minim de mai jos.
 ```cpp
 // Kruskal cu păduri de mulțimi disjuncte (union-find)
 struct Muchie { int x, y, cost; };
-int tata[100];
+int tata[100];                        // sau, dimensionat exact: vector<int> tata(n + 1);
 int radacina(int x) { return tata[x] == x ? x : tata[x] = radacina(tata[x]); }
 
 int kruskal(int n, vector<Muchie>& m) {

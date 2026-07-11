@@ -240,6 +240,27 @@ poziții conțin cele mai mari valori, la locul lor definitiv — de aceea bucla
 la `n - 1 - i`.
 :::
 
+**Aceleași sortări, cu `std::vector`** — trecerea este mecanică: antetul `(int numere[], int n)`
+devine `(vector<int>& numere)`, iar `n` devine `numere.size()`; **corpul rămâne neschimbat**:
+
+```cpp
+#include <vector>
+
+void selectionSort(std::vector<int>& numere) {
+    int n = numere.size();
+    for (int i = 0; i < n - 1; ++i) {
+        int pozMinim = i;
+        for (int j = i + 1; j < n; ++j)
+            if (numere[j] < numere[pozMinim]) pozMinim = j;
+        std::swap(numere[i], numere[pozMinim]);
+    }
+}
+```
+
+Avantajele variantei: dimensiunea exactă se stabilește la execuție (nu mai „ghicim" un maxim de 100),
+lungimea călătorește odată cu datele (`.size()`), iar `&` din antet spune explicit că vectorul se
+modifică. Observă că interclasarea (secțiunea 1.6) și utilitarele din §1.9 folosesc deja `std::vector`.
+
 **Sortarea prin numărare** (counting sort) — pentru valori întregi într-un interval mic `[0, vmax]`,
 atinge complexitatea liniară **O(n + vmax)**:
 
@@ -322,6 +343,11 @@ int cautareBinara(int numere[], int n, int cautat) {
     return -1;
 }
 ```
+
+Cu `std::vector`, antetul devine `int cautareBinara(const vector<int>& numere, int cautat)` —
+`const&` fiindcă doar **citim** — iar `dreapta` pornește de la `numere.size() - 1`. Biblioteca
+standard oferă și variantele gata făcute: `find` (căutare secvențială), respectiv `binary_search` /
+`lower_bound` (căutare binară pe interval sortat).
 
 ::: warning Condiția căutării binare
 Căutarea binară funcționează **doar pe un șir sortat**. Greșeala clasică este aplicarea ei pe date
