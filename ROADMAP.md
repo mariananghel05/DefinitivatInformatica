@@ -155,6 +155,30 @@ Informației**.
       (fiecare domeniu → lecțiile lui); lecții noi: evoluția sistemelor de calcul (V), animații —
       obiecte și efecte (VI), protecția datelor personale (VI), modulele opționale (XII) → **80 de lecții**
 
+## Pasul 11 — Rigoare teoretică la tematica științifică (algoritmi cu fundament + practică)
+> Tipar aplicat per algoritm: definiție riguroasă → teorema/lema pe care se sprijină + schița
+> demonstrației („de ce funcționează") → analogie didactică → exemplu parcurs pas cu pas → revenire
+> asupra exemplului („de ce așa").
+
+- [x] **01 Algoritmi:** lema lui Euclid (demonstrație + terminare) cu analogia „dalei maxime", tabelul
+      cmmdc(48,18) și revenirea pe divizori comuni; identitatea cmmdc·cmmmc = a·b (intuiția pe
+      exponenți); teorema divizorilor-pereche pentru primalitate (√n) + exemplul 97 + capcane 0/1/2;
+      invarianții sortărilor (inserție/selecție/bule) + trace selecție; limita inferioară n·log n a
+      sortărilor prin comparații (de ce counting sort „scapă"); interclasarea — trace cu doi candidați,
+      corectitudine, stabilitatea lui `<=`; invariantul căutării binare
+- [x] **05 Grafuri:** lema strângerilor de mână (nume + corolar demonstrat); teorema de caracterizare
+      a arborilor (4 echivalențe + de ce n−1); justificarea BFS = distanțe minime (inducție pe straturi
+      + analogia undei); **teorema lui Euler** cu ambele sensuri + construcția Hierholzer + povestea
+      Königsberg + „desenul dintr-o trăsătură"; contrastul Euler↔Hamilton (Dirac, dificultate);
+      **corectitudinea lui Dijkstra** (invariant greedy + unde intră ipoteza costurilor ≥ 0) +
+      contraexemplu numeric pentru costuri negative + analogia incendiului; Roy–Floyd ca programare
+      dinamică (semnificația lui k, recurența, de ce k e bucla exterioară); **proprietatea tăieturii**
+      (argument de schimb) — de ce Kruskal/Prim garantează optimul
+- [x] **03 Metode:** proprietatea alegerii lacome + substructura optimă (numite formal); principiul
+      optimalității (Bellman) la programarea dinamică
+- [x] **04 Alocare dinamică:** justificarea prin inducție a inordinii crescătoare la BST (invariantul
+      în fiecare nod)
+
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`
   (vezi `STRUCTURA-CONTINUT.md`).

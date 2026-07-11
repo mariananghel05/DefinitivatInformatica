@@ -88,6 +88,54 @@ long long cmmmc(int numar1, int numar2) {
 }
 ```
 
+#### Fundamentul teoretic: algoritmul lui Euclid
+
+**Definiție.** `cmmdc(a, b)` = **cel mai mare** număr natural care divide și pe `a`, și pe `b`;
+`cmmmc(a, b)` = cel mai mic număr natural nenul care se divide și cu `a`, și cu `b`.
+
+**Lema lui Euclid** (baza algoritmului): pentru orice `a` și `b > 0`,
+
+> **cmmdc(a, b) = cmmdc(b, a mod b)**, iar **cmmdc(a, 0) = a**.
+
+*De ce este adevărată:* scriem `a = q·b + r` (împărțirea cu rest). Orice număr care divide `a` și `b`
+divide și `r = a − q·b`; reciproc, orice divizor comun al lui `b` și `r` divide și `a = q·b + r`.
+Perechile `(a, b)` și `(b, r)` au deci **exact aceiași divizori comuni** — în particular, același
+divizor comun maxim. Algoritmul înlocuiește repetat perechea cu una „mai mică", fără să schimbe
+răspunsul.
+
+*De ce se termină:* resturile scad strict (`r < b`), iar un șir strict descrescător de numere naturale
+ajunge obligatoriu la 0 — finitudinea e **garantată**, nu sperată.
+
+::: tip Analogie didactică — „dala maximă"
+`cmmdc(a, b)` este **latura celei mai mari plăci pătrate** cu care poți pava exact o podea
+dreptunghiulară `a × b`, fără tăieri. Chiar pasul lui Euclid se vede pe podea: acoperi cu pătrate
+`b × b` cât încape (câtul), rămâne o fâșie `b × r` — și problema se repetă pe dreptunghiul mai mic.
+Aceeași idee, cu o sfoară de `a` cm din care „tai" repetat bucăți de `b` cm, funcționează excelent
+la clasă.
+:::
+
+**Exemplu pas cu pas** — `cmmdc(48, 18)`:
+
+| Pas | a | b | a mod b |
+|---|---|---|---|
+| 1 | 48 | 18 | 12 |
+| 2 | 18 | 12 | 6 |
+| 3 | 12 | 6 | **0** |
+| stop | 6 | 0 | răspuns: **6** |
+
+**Revenire — de ce a mers?** La fiecare pas, perechea și-a păstrat divizorii comuni: divizorii comuni
+ai lui (48, 18) sunt {1, 2, 3, 6} — exact aceiași ca ai lui (18, 12) și ai lui (12, 6). Când restul
+devine 0, răspunsul e „la vedere": `cmmdc(6, 0) = 6`, fiindcă 6 divide 0.
+
+**Legătura cmmdc ↔ cmmmc** — pentru numere naturale nenule are loc identitatea:
+
+> **cmmdc(a, b) · cmmmc(a, b) = a · b**
+
+*Intuiția pe factorizări:* cmmdc ia **minimul** exponenților fiecărui factor prim, cmmmc ia
+**maximul**, iar `min + max` = suma exponenților — adică exact produsul. De aici formula din cod,
+`cmmmc = a / cmmdc(a, b) * b`, cu împărțirea **înainte** de înmulțire, ca produsul intermediar să nu
+depășească tipul întreg.
+
 ::: tip Verificarea primalității eficient
 Un număr `n` se testează că este prim verificând divizorii până la `√n`, nu până la `n`.
 ```cpp
@@ -99,6 +147,17 @@ bool estePrim(int numar) {
 }
 ```
 :::
+
+**De ce este suficient până la √n? (teoremă)** Dacă `n = d · e` cu `d ≤ e`, atunci obligatoriu
+`d ≤ √n` — altfel am avea `d · e > √n · √n = n`, contradicție. **Divizorii merg deci în perechi**
+`(d, n/d)`, iar din fiecare pereche unul stă mereu sub (sau la) √n: dacă n are vreun divizor propriu,
+are unul cel târziu la √n. Verificând doar până acolo nu pierdem nimic — dar câștigăm enorm: pentru
+n ≈ 10¹², de la ~10¹² pași la ~10⁶.
+
+*Exemplu pas cu pas* — este 97 prim? Testăm divizorii `d` cu `d² ≤ 97`, adică `d ∈ {2, …, 9}`:
+niciunul nu divide 97 ⇒ **97 este prim** (9 teste în loc de 95). *Capcane de rigoare:* 0 și 1 **nu**
+sunt prime (definiția cere exact doi divizori), iar 2 este singurul prim par — cazurile mici se
+tratează explicit, ca în codul de mai sus.
 
 ### 1.5. Algoritmi de sortare
 
@@ -167,6 +226,20 @@ Acesta este argumentul de corectitudine al algoritmului — și o explicație ex
 exact așa ordonăm cărțile de joc primite pe rând în mână.
 :::
 
+::: details Exemplu pas cu pas — sortarea prin selecție pe șirul [5, 2, 8, 1]
+| Pas | Zona nesortată | Minimul ei | Interschimbare | Șirul după pas |
+|---|---|---|---|---|
+| i = 0 | 5, 2, 8, 1 | 1 (poziția 3) | 5 ↔ 1 | **1**, 2, 8, 5 |
+| i = 1 | 2, 8, 5 | 2 (pe loc) | — | **1, 2**, 8, 5 |
+| i = 2 | 8, 5 | 5 (poziția 3) | 8 ↔ 5 | **1, 2, 5**, 8 |
+
+**Invariantul selecției** (argumentul de corectitudine): după pasul `i`, primele `i + 1` poziții
+conțin **cele mai mici** `i + 1` valori, deja în ordinea lor finală — de aceea, la ultimul pas, tot
+șirul este sortat. La **metoda bulelor**, invariantul e „în oglindă": după trecerea `i`, ultimele `i`
+poziții conțin cele mai mari valori, la locul lor definitiv — de aceea bucla interioară se poate opri
+la `n - 1 - i`.
+:::
+
 **Sortarea prin numărare** (counting sort) — pentru valori întregi într-un interval mic `[0, vmax]`,
 atinge complexitatea liniară **O(n + vmax)**:
 
@@ -181,6 +254,13 @@ void countingSort(int numere[], int n, int valoareMax) {
             numere[pozitie++] = valoare;
 }
 ```
+
+**De ce este liniar counting sort — și care e prețul.** Metoda nu compară elemente între ele: numără
+aparițiile (`n` pași), apoi rescrie șirul în ordinea valorilor (`vmax + n` pași) ⇒ **O(n + vmax)**.
+Prețul: vectorul de frecvențe de dimensiune `vmax + 1` — metoda are sens doar când valorile stau
+într-un interval mic. Observație de teorie, frumoasă la examen: orice sortare **prin comparații** are
+nevoie, în cazul cel mai defavorabil, de cel puțin `n·log₂ n` comparații (limita inferioară a sortării
+prin comparații) — counting sort „scapă" de această limită tocmai pentru că **nu compară**.
 
 ### 1.6. Algoritmul de interclasare
 
@@ -200,6 +280,22 @@ std::vector<int> interclasare(const std::vector<int>& primul, const std::vector<
     return rezultat;
 }
 ```
+
+**Exemplu pas cu pas** — interclasarea vectorilor `A = [1, 4, 9]` și `B = [2, 3, 7]`:
+
+| Pas | Candidatul din A | Candidatul din B | Alegem | Rezultatul |
+|---|---|---|---|---|
+| 1 | 1 | 2 | 1 | 1 |
+| 2 | 4 | 2 | 2 | 1, 2 |
+| 3 | 4 | 3 | 3 | 1, 2, 3 |
+| 4 | 4 | 7 | 4 | 1, 2, 3, 4 |
+| 5 | 9 | 7 | 7 | 1, 2, 3, 4, 7 |
+| 6 | 9 | — (B epuizat) | restul lui A | 1, 2, 3, 4, 7, 9 |
+
+**Revenire — de ce funcționează:** ambii vectori fiind sortați, cel mai mic element încă neplasat este
+mereu unul dintre cei doi „candidați" din față — rezultatul se construiește deci direct în ordine,
+fiecare element fiind mutat **o singură dată** (de aici O(n + m)). Semnul `<=` la egalitate face
+interclasarea **stabilă**: elementele egale își păstrează ordinea, cu prioritate pentru primul vector.
 
 > Interclasarea stă la baza sortării prin interclasare (*merge sort*) — vezi
 > [Metode de programare → Divide et impera](/stiintific/03-metode-programare#_3-3-divide-et-impera).
@@ -244,7 +340,9 @@ valori mari — preferă `stanga + (dreapta - stanga) / 2`.
 
 La fiecare pas intervalul de căutare se **înjumătățește**: din 7 elemente rămân 3, apoi 1. De aceea
 numărul de pași este `log₂ n` — pe un șir de 1 000 000 de elemente sunt suficiente **20 de comparații**,
-față de până la 1 000 000 la căutarea secvențială.
+față de până la 1 000 000 la căutarea secvențială. **Invariantul care garantează corectitudinea:** dacă
+valoarea căutată există în șir, ea se află mereu în intervalul curent `[stanga, dreapta]` — fiecare
+comparație elimină exact jumătatea în care ea **nu poate fi** (aici se folosește ipoteza „șir sortat").
 
 ### 1.8. Analiza complexității unui algoritm
 

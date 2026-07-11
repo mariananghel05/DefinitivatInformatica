@@ -38,6 +38,12 @@ mult loc** pentru cele rămase; orice soluție optimă poate fi transformată, s
 care începe cu ea (argument „de schimb"). Acesta este tipul de justificare cerut când argumentezi
 oportunitatea metodei greedy.
 
+Formal, o problemă se pretează la greedy când are două proprietăți: **proprietatea alegerii lacome**
+(o alegere optimă local poate fi extinsă la o soluție optimă globală — demonstrată de regulă prin
+argumentul de schimb de mai sus) și **substructura optimă** (după alegere, restul problemei este o
+instanță mai mică de același tip). Acestea sunt reperele „argumentării oportunității" la examen; când
+prima proprietate lipsește, greedy eșuează — vezi contraexemplul de mai jos.
+
 ::: details Contraexemplu — de ce greedy NU merge la rucsacul discret
 Rucsac de capacitate **10**; obiecte (greutate, valoare): A(6, 30), B(5, 20), C(5, 20).
 Raportul valoare/greutate: A = 5, B = C = 4 ⇒ greedy alege **A**, apoi B și C nu mai încap → valoare **30**.
@@ -173,6 +179,11 @@ long long fibDinamic(int n) {                 // O(n) — fiecare valoare, calcu
 **Divide et impera vs. programare dinamică:** ambele descompun problema, dar la divide et impera
 subproblemele sunt **independente** (nu se repetă), pe când la programarea dinamică ele **se suprapun**
 — de aceea merită memorate într-o tabelă.
+
+Fundamentul teoretic poartă un nume: **principiul optimalității (Bellman)** — o soluție optimă este
+alcătuită din subsoluții la rândul lor optime (substructura optimă). Dacă principiul nu se verifică
+(adică optimul global ar folosi subsoluții neoptime), programarea dinamică **nu se aplică** —
+verificarea lui este primul pas al argumentării oportunității metodei.
 
 **Aplicații clasice:** **subșir crescător de lungime maximă**, **rucsacul discret (0/1)**,
 **cel mai lung subșir comun** (LCS).

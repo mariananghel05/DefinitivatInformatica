@@ -206,6 +206,13 @@ Căutarea unei chei urmează același drum ca inserarea: la fiecare nod elimină
 deci într-un arbore echilibrat costă **O(log n)** — BST-ul este „ruda" arborescentă a
 [căutării binare](/stiintific/01-algoritmi).
 
+**De ce inordinea unui BST iese mereu crescătoare (justificare):** prin inducție după structura
+arborelui — inordinea vizitează întâi subarborele stâng (care conține numai chei **mai mici** decât
+rădăcina și care, prin ipoteza de inducție, se afișează crescător), apoi rădăcina, apoi subarborele
+drept (numai chei **mai mari**, la rândul lor în ordine). Invariantul „stâng < rădăcină < drept",
+valabil în **fiecare** nod (nu doar la rădăcină!), este exact ceea ce transformă o simplă parcurgere
+într-o sortare — și ceea ce trebuie păstrat la fiecare inserare.
+
 **Parcurgeri ale arborilor binari:**
 
 | Parcurgere | Ordine | Acronim |
