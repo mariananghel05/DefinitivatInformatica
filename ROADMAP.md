@@ -185,6 +185,24 @@ Informației**.
       + `std::stack`/`std::queue` (04); reprezentări dinamice `vector<vector<int>>` pentru matrice și
       liste de adiacență + union-find (05)
 
+## Pasul 12 — „Ghidul examenului" (pagina-coloană vertebrală) + lizibilitatea codului
+- [x] **`docs/ghid-examen.md`** — expunere progresivă de tip arbore, organizată pe subpunctele
+      examenului (I.1–I.4, II.1–II.2): 26 de noduri pliabile (`::: details`), fiecare cu șablonul fix
+      „Ce este? / Ce trebuie să știu ca să rezolv? / Cum se rezolvă? / Cum se abordează didactic?" și
+      trimiteri către teorie (/stiintific), lecții (/lectii), metodică (/metodica), competențe și
+      rezolvări model (/subiecte)
+- [x] Secțiunea **„Corelarea didactică — tabloul complet"**: lanțul didactic, matricea de corelare
+      (tip de lecție ↔ metode ↔ forme ↔ mijloace ↔ evaluare), tabelul decizional „ce metodă aleg?",
+      fluxurile pas cu pas pentru II.1 (scenariul) și II.2 (itemul), greșelile frecvente
+- [x] **„Acoperirea materiei"**: matricea temelor 1–10 + M1–M3 → subpunct vizat → teorie → lecții +
+      traseul de pregătire recomandat
+- [x] Navigație: intrare top-level „Ghid examen", sidebar cu ancore pe secțiuni, hero-ul paginii
+      principale trimite la ghid
+- [x] **Lizibilitatea codului** din tematica științifică: lambda → funcții de comparare numite
+      (`dupaSfarsit` la greedy, `dupaCost` la Kruskal), structured bindings → variabile explicite cu
+      comentarii (Dijkstra), `std::greater` → comparator propriu `descrescator` ca variantă principală;
+      formele moderne păstrate în blocuri pliabile „Varianta modernă, echivalentă"
+
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`
   (vezi `STRUCTURA-CONTINUT.md`).

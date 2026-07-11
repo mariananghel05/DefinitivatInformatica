@@ -194,23 +194,46 @@ deja optim. **Important:** funcționează doar cu **costuri nenegative**.
 
 ```cpp
 // Dijkstra — drum minim dintr-o sursă, costuri nenegative — O(m log n)
+// g[x] = lista vecinilor lui x, ca perechi (vecin, costul muchiei)
 vector<int> dijkstra(int start, int n, vector<vector<pair<int,int>>>& g) {
     const int INF = 1e9;
-    vector<int> d(n + 1, INF);
+    vector<int> d(n + 1, INF);           // d[x] = cel mai mic cost cunoscut până la x
+
+    // coadă cu priorități de perechi (cost, nod); greater<> => iese mereu costul MINIM
     priority_queue<pair<int,int>, vector<pair<int,int>>, greater<>> pq;
-    d[start] = 0; pq.push({0, start});
+    d[start] = 0;
+    pq.push(make_pair(0, start));
+
     while (!pq.empty()) {
-        auto [cost, x] = pq.top(); pq.pop();
-        if (cost > d[x]) continue;
-        for (auto [y, w] : g[x])
-            if (d[x] + w < d[y]) {
+        pair<int,int> varf = pq.top();   // perechea cu costul cel mai mic
+        pq.pop();
+        int cost = varf.first;           // costul drumului găsit
+        int x    = varf.second;          // nodul în care am ajuns
+        if (cost > d[x]) continue;       // intrare „învechită": am găsit deja un drum mai bun
+
+        for (pair<int,int>& muchie : g[x]) {
+            int y = muchie.first;        // vecinul
+            int w = muchie.second;       // costul muchiei x–y
+            if (d[x] + w < d[y]) {       // relaxare: prin x se ajunge mai ieftin la y?
                 d[y] = d[x] + w;
-                pq.push({d[y], y});
+                pq.push(make_pair(d[y], y));
             }
+        }
     }
     return d;
 }
 ```
+
+::: details Varianta modernă, echivalentă (structured bindings, C++17)
+Perechea se poate „despacheta" direct în două variabile cu nume — formă mai scurtă, des întâlnită:
+
+```cpp
+auto [cost, x] = pq.top(); pq.pop();     // în loc de varf.first / varf.second
+for (auto [y, w] : g[x]) { /* ... */ }   // vecinul și costul muchiei, direct pe nume
+```
+
+Comportamentul este identic — doar sintaxa e mai condensată.
+:::
 
 ::: details Exemplu pas cu pas — Dijkstra din nodul 1
 Graf ponderat cu muchiile: `1–2 (cost 4)`, `1–3 (cost 1)`, `3–2 (cost 2)`, `2–4 (cost 5)`, `3–4 (cost 8)`.
@@ -315,19 +338,40 @@ cost minim de mai jos.
 // Kruskal cu păduri de mulțimi disjuncte (union-find)
 struct Muchie { int x, y, cost; };
 int tata[100];                        // sau, dimensionat exact: vector<int> tata(n + 1);
-int radacina(int x) { return tata[x] == x ? x : tata[x] = radacina(tata[x]); }
+
+int radacina(int x) {                 // reprezentantul „pădurii" din care face parte x
+    if (tata[x] == x) return x;       // x este chiar rădăcina pădurii lui
+    tata[x] = radacina(tata[x]);      // comprimăm drumul: reținem direct rădăcina
+    return tata[x];
+}
+
+// regula de ordonare: muchia mai ieftină vine prima
+bool dupaCost(const Muchie& a, const Muchie& b) {
+    return a.cost < b.cost;
+}
 
 int kruskal(int n, vector<Muchie>& m) {
-    sort(m.begin(), m.end(), [](auto& a, auto& b){ return a.cost < b.cost; });
-    for (int i = 1; i <= n; ++i) tata[i] = i;
+    sort(m.begin(), m.end(), dupaCost);          // muchiile, de la ieftină la scumpă
+    for (int i = 1; i <= n; ++i) tata[i] = i;    // la început, fiecare nod e o pădure separată
     int costTotal = 0;
-    for (auto& e : m) {
+    for (Muchie& e : m) {
         int rx = radacina(e.x), ry = radacina(e.y);
-        if (rx != ry) { tata[rx] = ry; costTotal += e.cost; }   // nu formează ciclu
+        if (rx != ry) {                          // capete în păduri diferite ⇒ nu formează ciclu
+            tata[rx] = ry;                       // unim cele două păduri
+            costTotal += e.cost;
+        }
     }
     return costTotal;
 }
 ```
+
+::: details Varianta modernă, echivalentă (lambda la sortare)
+```cpp
+sort(m.begin(), m.end(), [](auto& a, auto& b){ return a.cost < b.cost; });
+```
+Funcția anonimă `[](...){ ... }` definește regula de comparare direct la locul apelului — echivalentă
+cu funcția numită `dupaCost`.
+:::
 
 **Cum „gândește" Kruskal:** ia muchiile de la cea mai ieftină la cea mai scumpă și acceptă o muchie doar
 dacă **nu închide un ciclu** (adică unește două „păduri" diferite — de aici structura union-find). Se

@@ -24,6 +24,7 @@ export default defineConfig({
     // Bara de sus
     nav: [
       { text: 'Acasă', link: '/' },
+      { text: 'Ghid examen', link: '/ghid-examen' },
       { text: 'Despre examen', link: '/despre-examen' },
       {
         text: 'Programa',
@@ -60,6 +61,48 @@ export default defineConfig({
     ],
 
     sidebar: {
+      '/ghid-examen': [
+        {
+          text: 'Ghidul examenului',
+          items: [
+            { text: 'Cum folosești ghidul', link: '/ghid-examen#cum-folosesti-ghidul' },
+            { text: 'Harta examenului', link: '/ghid-examen#harta-examenului-la-o-privire' },
+          ],
+        },
+        {
+          text: 'Subiectul I — Specialitatea (60p)',
+          items: [
+            { text: 'I.1 — Teoretic specialitate', link: '/ghid-examen#i-1-subiect-teoretic-de-specialitate-15p' },
+            { text: 'I.2 — Teoretic TIC', link: '/ghid-examen#i-2-subiect-teoretic-de-tic-15p' },
+            { text: 'I.3 — Problema de programare', link: '/ghid-examen#i-3-problema-de-programare-15p' },
+            { text: 'I.4 — Baze de date', link: '/ghid-examen#i-4-baze-de-date-15p' },
+          ],
+        },
+        {
+          text: 'Subiectul II — Metodica (30p)',
+          items: [
+            { text: 'II.1 — Scenariul didactic', link: '/ghid-examen#ii-1-scenariul-didactic-15p' },
+            { text: 'II.2 — Evaluarea și itemii', link: '/ghid-examen#ii-2-evaluarea-si-itemii-15p' },
+          ],
+        },
+        {
+          text: 'Corelarea didactică',
+          items: [
+            { text: 'Lanțul didactic', link: '/ghid-examen#lantul-didactic' },
+            { text: 'Matricea de corelare', link: '/ghid-examen#matricea-de-corelare-tip-de-lectie-metode-forme-mijloace-evaluare' },
+            { text: '„Ce metodă aleg?"', link: '/ghid-examen#ce-metoda-aleg-tabel-decizional-pe-tipul-de-continut' },
+            { text: 'Scenariul II.1 pas cu pas', link: '/ghid-examen#de-la-secventa-de-programa-la-scenariul-ii-1-pas-cu-pas' },
+            { text: 'Itemul II.2 pas cu pas', link: '/ghid-examen#construirea-itemului-ii-2-pas-cu-pas' },
+            { text: 'Greșeli frecvente', link: '/ghid-examen#greseli-frecvente-la-subiectul-ii' },
+          ],
+        },
+        {
+          text: 'Verificare finală',
+          items: [
+            { text: 'Acoperirea materiei', link: '/ghid-examen#acoperirea-materiei-verificare-finala' },
+          ],
+        },
+      ],
       '/stiintific/': [
         {
           text: 'Tematică științifică',

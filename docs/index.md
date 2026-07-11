@@ -7,16 +7,21 @@ hero:
   tagline: Curs complet de pregătire — teorie, competențe, metodică și modele de subiecte rezolvate, conform programei oficiale.
   actions:
     - theme: brand
-      text: Începe cu „Despre examen"
-      link: /despre-examen
+      text: Începe cu Ghidul examenului
+      link: /ghid-examen
     - theme: alt
-      text: Tematica științifică
-      link: /stiintific/
+      text: Despre examen
+      link: /despre-examen
     - theme: alt
       text: Modele de subiecte
       link: /subiecte/
 
 features:
+  - icon: 🧭
+    title: Ghidul examenului
+    details: Coloana vertebrală a cursului — arborele examenului (I.1–II.2), fiecare concept cu „Ce este? Ce trebuie să știu? Cum se rezolvă? Cum abordez didactic?" și trimiteri spre detalii.
+    link: /ghid-examen
+    linkText: Deschide ghidul
   - icon: 📘
     title: Tematică științifică
     details: Cele 10 teme din programă — de la algoritmi și C++ la grafuri, baze de date și rețele. Fiecare temă cu teorie, competențe și metodică.
@@ -56,6 +61,7 @@ Acest site este organizat ca un **manual digital** pentru pregătirea examenului
 disciplina **Informatică și Tehnologia Informației**. Conținutul urmează fidel **programa oficială**
 și este împărțit în module:
 
+- **[Ghidul examenului](/ghid-examen)** — expunerea progresivă „de la structură la detaliu": arborele examenului cu noduri pliabile, corelarea didactică și traseul de pregătire.
 - **[Despre examen](/despre-examen)** — structura probei, condiții de înscriere, notă minimă, calendar și surse oficiale.
 - **[Harta materiei](/harta-materiei)** — cuprinsul complet al programei, cu link către fiecare subiect.
 - **[Conținuturi pe clase (V–XII)](/programa-clase)** — programa fiecărei clase, pe domenii, din programele în vigoare.

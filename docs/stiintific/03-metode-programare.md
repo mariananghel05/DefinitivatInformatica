@@ -20,18 +20,36 @@ speranța obținerii optimului global. Rapidă, dar **nu garantează** întotdea
 // Sortăm crescător după timpul de sfârșit și alegem greedy.
 struct Activitate { int inceput, sfarsit; };
 
+// regula de ordonare: activitatea care se termină mai devreme vine prima
+bool dupaSfarsit(const Activitate& x, const Activitate& y) {
+    return x.sfarsit < y.sfarsit;
+}
+
 int maximActivitati(vector<Activitate> a) {
-    sort(a.begin(), a.end(),
-         [](const Activitate& x, const Activitate& y){ return x.sfarsit < y.sfarsit; });
+    sort(a.begin(), a.end(), dupaSfarsit);   // ordonăm după regula de mai sus
     int nr = 0, ultimSfarsit = -1;
-    for (auto& act : a)
-        if (act.inceput >= ultimSfarsit) {   // nu se suprapune
+    for (Activitate& act : a)                // luăm activitățile în ordinea sfârșitului
+        if (act.inceput >= ultimSfarsit) {   // nu se suprapune cu ultima aleasă
             nr++;
             ultimSfarsit = act.sfarsit;
         }
     return nr;
 }
 ```
+
+::: details Varianta modernă, echivalentă (funcție anonimă — lambda)
+Aceeași regulă de comparare se poate scrie „pe loc", ca **funcție anonimă (lambda)** — formă des
+întâlnită în culegeri și în rezolvările online:
+
+```cpp
+sort(a.begin(), a.end(),
+     [](const Activitate& x, const Activitate& y) { return x.sfarsit < y.sfarsit; });
+```
+
+Sintaxa `[](parametri){ corp }` definește funcția chiar la locul apelului: `[]` marchează începutul
+lambdei, urmează parametrii și corpul. Este strict o prescurtare — comportamentul e identic cu funcția
+numită `dupaSfarsit`.
+:::
 
 **De ce e corectă alegerea „cel mai devreme sfârșit"?** Activitatea care se termină prima lasă **cel mai
 mult loc** pentru cele rămase; orice soluție optimă poate fi transformată, schimb cu schimb, într-una

@@ -534,9 +534,13 @@ int n = std::atoi(propozitie.c_str());      // interfață cu funcții stil C
 #include <numeric>
 #include <vector>
 
+// comparator propriu: „a vine înaintea lui b dacă a este mai mare"
+bool descrescator(int a, int b) { return a > b; }
+
 std::vector<int> numere = {5, 2, 9, 1};
-std::sort(numere.begin(), numere.end());                 // {1, 2, 5, 9}
-std::sort(numere.begin(), numere.end(), std::greater<int>()); // descrescător: {9, 5, 2, 1}
+std::sort(numere.begin(), numere.end());                 // crescător: {1, 2, 5, 9}
+std::sort(numere.begin(), numere.end(), descrescator);   // descrescător: {9, 5, 2, 1}
+// echivalent, cu comparatorul gata făcut din bibliotecă: std::greater<int>()
 
 int maxim = *std::max_element(numere.begin(), numere.end()); // maxim = 9
 int suma  = std::accumulate(numere.begin(), numere.end(), 0); // suma  = 17
@@ -546,7 +550,8 @@ int suma  = std::accumulate(numere.begin(), numere.end(), 0); // suma  = 17
 - La șiruri stil C, după `strncpy` pune **manual** `'\0'`, altfel șirul poate rămâne neterminat.
 - `strcmp`/`strncmp` **nu** întorc „true/false", ci `0` la egalitate — testează `== 0`.
 - Pentru `std::string`, rezultatul lui `find` se compară cu `std::string::npos`, nu cu `-1`.
-- `sort` ordonează implicit **crescător**; pentru descrescător folosește un comparator (`std::greater<int>()`).
+- `sort` ordonează implicit **crescător**; pentru descrescător scrie un comparator propriu
+  (`bool descrescator(int a, int b) { return a > b; }`) sau folosește `std::greater<int>()` din bibliotecă.
 :::
 
 ## 2. Competențe vizate
