@@ -165,6 +165,11 @@ scrierea de interogări pe o bază de date demonstrativă; corectarea unei inter
 **Itemi de evaluare:**
 - *obiectiv:* „Care clauză filtrează liniile? a) `ORDER BY` b) `WHERE`";
 - *semiobiectiv:* „Ce rol are cheia străină?";
+- *semiobiectiv (întrebare structurată):* material — tabelele `Elevi(id, nume, clasa)` și
+  `Note(id, id_elev, disciplina, nota)`; a) indicați cheia primară a fiecărui tabel; b) ce câmp este
+  cheie străină și pe cine referă? c) scrieți interogarea care afișează numele elevilor cu nota 10;
+  d) ce se întâmplă la inserarea unei note cu `id_elev` inexistent? (tipul de item, detaliat:
+  [Evaluarea randamentului](/metodica/03-evaluare-randament));
 - *subiectiv:* „Scrieți o interogare care afișează numărul de elevi din fiecare clasă."
 
 ::: warning Erori tipice

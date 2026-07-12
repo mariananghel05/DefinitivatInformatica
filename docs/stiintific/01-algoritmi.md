@@ -597,6 +597,10 @@ trasarea (table de execuție) a unui algoritm; compararea timpilor pentru două 
 **Exemple de itemi de evaluare:**
 - *item obiectiv (alegere multiplă):* „Care algoritm necesită un șir **sortat**? a) secvențial b) binar";
 - *item semiobiectiv (răspuns scurt):* „Câte comparații face căutarea binară în cel mai rău caz pe 1000 de elemente?";
+- *item semiobiectiv (întrebare structurată):* material — șirul `5 2 8 1` și algoritmul sortării prin
+  selecție; a) care este minimul zonei nesortate la primul pas? b) scrieți șirul după fiecare pas;
+  c) câte interschimbări s-au făcut în total? (structura detaliată a acestui tip de item:
+  [Evaluarea randamentului](/metodica/03-evaluare-randament));
 - *item subiectiv (rezolvare de problemă):* „Scrieți un subprogram care sortează crescător un vector prin metoda selecției."
 
 ::: warning Erori tipice ale elevilor

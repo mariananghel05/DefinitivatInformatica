@@ -67,6 +67,68 @@ barem explicit; concordanța cu competența evaluată; grad de dificultate adecv
 - **subiectiv:** „Scrieți un subprogram care returnează al doilea cel mai mare element dintr-un vector și justificați corectitudinea."
 :::
 
+#### Itemul de tip „întrebare structurată"
+
+Cel mai important item pentru examen — cerința tipică de la **Subiectul II.2** („itemi de tip
+întrebare structurată") și, didactic, puntea dintre itemii obiectivi și cei subiectivi.
+
+**Definiție.** Item **semiobiectiv** alcătuit dintr-un **material-stimul** (text, program, desen,
+tabel de date, secvență de cod) urmat de un set de **subîntrebări** (de regulă 3–5) care decurg din
+material, cer **răspunsuri scurte, dirijate** și sunt **gradate** ca dificultate.
+
+**Structura standard:**
+
+```text
+[ MATERIAL-STIMUL ]      un program scurt / un graf desenat / un set de date
+        │
+   a) subîntrebare de cunoaștere        (identificare, definire)
+   b) subîntrebare de aplicare          (urmărire, calcul pe material)
+   c) subîntrebare de analiză           (justificare, caz-limită, modificare)
+        │
+   (eventual, date suplimentare introduse pe parcurs)
+```
+
+**Regulile de proiectare specifice** (la examen se cer explicit, „3 reguli × 1p"):
+1. subîntrebările **decurg din materialul-stimul** — nu se pot rezolva ignorându-l;
+2. sunt **independente între ele** — răspunsul greșit la una nu blochează rezolvarea următoarelor;
+3. dificultatea **crește gradat** (de la identificare spre analiză);
+4. fiecare subîntrebare are **răspuns scurt, precis** și **punctaj propriu** în barem;
+5. materialul este **adecvat vârstei** și competenței evaluate.
+
+**Avantaje:** acoperă mai multe niveluri cognitive într-un singur item; corectare aproape obiectivă
+(răspunsuri scurte + barem defalcat); simulează lectura de cod/date din practica reală.
+**Limite:** construcția laborioasă (materialul trebuie „să susțină" toate subîntrebările); riscul
+ascuns al dependenței între subîntrebări — se verifică explicit la proiectare.
+
+**Exemplu complet** (conținut: *căutarea binară*, clasa a X-a — competența 3.1):
+
+> **Material-stimul:** vectorul sortat `v = (3, 7, 10, 14, 21, 25, 32)` și subprogramul de căutare
+> binară studiat la clasă.
+>
+> a) Ce condiție trebuie să îndeplinească vectorul pentru ca metoda să funcționeze? **(2p)**
+> b) Pentru valoarea căutată `x = 21`, completați tabelul valorilor `stanga`, `dreapta`, `mijloc`
+>    la fiecare pas. **(4p)**
+> c) Câte comparații efectuează algoritmul, în cel mai rău caz, pentru un vector cu 1000 de
+>    elemente? Justificați. **(3p)**
+> d) Ce valoare returnează subprogramul dacă `x` nu se află în vector și de ce este aleasă această
+>    valoare? **(3p)**
+>
+> **Răspunsuri așteptate:** a) vector **sortat**; b) tabelul: (0,6,3) → (4,6,5) → (4,4,4) — găsit pe
+> poziția 4; c) ~10 comparații, deoarece 2¹⁰ = 1024 ≥ 1000 (înjumătățiri repetate); d) `-1` — valoare
+> imposibilă ca indice, deci semnal clar de „negăsit". *(Total: 2+4+3+3 = 12p; punctajele se
+> adaptează testului în care itemul este integrat.)*
+
+Observă anatomia: a) cunoaștere → b) aplicare (urmărire) → c) raționament (calcul) → d) analiză
+(decizie de proiectare) — gradarea cerută de regula 3, pe un singur material, cu subîntrebări
+independente (poți răspunde la c) chiar dacă ai greșit b).
+
+::: info La examenul de definitivat (II.2)
+Cerința tipică: enunțarea a **două caracteristici** ale itemului + **trei reguli** de proiectare +
+**elaborarea câte unui item** pentru fiecare dintre cele două secvențe de programă date, cu enunț și
+răspuns așteptat. Modelul rezolvat pe subiectul real: [Varianta 1, II.2](/subiecte/varianta-1);
+pașii de construcție: [Ghidul examenului — itemul II.2 pas cu pas](/ghid-examen#construirea-itemului-ii-2-pas-cu-pas).
+:::
+
 ### 3.5. Proiectarea unui test — matricea de specificații
 
 **Matricea de specificații** garantează **validitatea** testului: distribuie itemii pe conținuturi și pe

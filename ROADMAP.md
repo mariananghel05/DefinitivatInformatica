@@ -206,6 +206,10 @@ Informației**.
       aritmeticii, tabelul de aur al complexităților, valori-limită, teoremele de citat, top 10 capcane
       C++, esențialul BD/TIC, listele didactice de recitat (momente, tipuri de lecție, metode, itemi,
       efecte perturbatoare) + cadrul normativ; intrare în nav (dropdown „Ghid examen") + sidebar propriu
+- [x] **Itemul „întrebare structurată" dezvoltat complet** în metodica 3 (definiție, structura
+      material-stimul + subîntrebări gradate, cele 5 reguli de proiectare, avantaje/limite, exemplu
+      integral pe căutarea binară cu răspunsuri și barem defalcat) + exemple de întrebări structurate
+      la temele 01/05/06 + linkuri din ghid (nodul II.2, fluxul pas cu pas) și din esențial
 - [x] **`docs/subiecte/arhiva-oficiala.md`** — arhiva subiectelor oficiale + bareme (PDF, verificate):
       sesiunile 2018–2025 + modelele 2023/2026, cu rezolvările integrale de pe site (2024, 2025) și
       rezolvări video I.3 (2023–2025), protocolul de lucru pe variantă și convenția de denumire a

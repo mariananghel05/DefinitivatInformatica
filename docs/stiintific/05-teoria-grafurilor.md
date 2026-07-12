@@ -418,6 +418,10 @@ tablă; identificarea componentelor conexe; aplicarea Kruskal pe o hartă de „
 **Itemi de evaluare:**
 - *obiectiv:* „Câte muchii are un arbore cu n vârfuri? (n−1)";
 - *semiobiectiv:* „Ce parcurgere folosește o coadă? (BFS)";
+- *semiobiectiv (întrebare structurată):* material — graful cu muchiile `{1,2}, {1,3}, {2,3}, {3,4}`;
+  a) desenați graful; b) precizați gradul fiecărui nod; c) este graful conex? justificați;
+  d) câte muchii ar trebui adăugate pentru a-l face complet? (tipul de item, detaliat:
+  [Evaluarea randamentului](/metodica/03-evaluare-randament));
 - *subiectiv:* „Determinați numărul componentelor conexe ale unui graf dat prin matrice de adiacență."
 
 ::: warning Erori tipice

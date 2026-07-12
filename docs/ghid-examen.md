@@ -493,8 +493,9 @@ de programe, investigația = set de date în Excel). → [Evaluarea randamentulu
 specificații pentru validitate. → [Evaluarea randamentului §3.4–3.5](/metodica/03-evaluare-randament)
 
 **Ce trebuie să știu ca să rezolv?** — definiția + avantaje/limite pentru fiecare categorie; regulile
-de proiectare (enunț clar, barem explicit, concordanță cu competența); structura întrebării structurate
-(material + subîntrebări gradate).
+de proiectare (enunț clar, barem explicit, concordanță cu competența); structura
+[întrebării structurate](/metodica/03-evaluare-randament#itemul-de-tip-intrebare-structurata)
+(material-stimul + subîntrebări gradate, independente) — dezvoltată complet, cu exemplu și barem.
 
 **Cum se rezolvă?** — identifică tipul cerut → enunță 2 caracteristici + 3 reguli → abia apoi redactezi.
 → [Varianta 1, II.2 — itemi de tip întrebare structurată](/subiecte/varianta-1)
@@ -591,8 +592,9 @@ Model rezolvat integral: [Varianta 1, II.1](/subiecte/varianta-1) · proiect de 
 2. **Enunță regulile de proiectare** (claritate, barem explicit, concordanță cu competența…). *(3×1p)*
 3. **Ancorează itemul în secvență**: conținutul itemului = conținutul secvenței A (apoi B), competența
    = cea citată.
-4. **Redactează enunțul** precis (la întrebarea structurată: material + subîntrebări gradate de la
-   simplu la complex). *(3p per item)*
+4. **Redactează enunțul** precis (la
+   [întrebarea structurată](/metodica/03-evaluare-randament#itemul-de-tip-intrebare-structurata):
+   material-stimul + subîntrebări gradate de la simplu la complex, independente). *(3p per item)*
 5. **Scrie răspunsul așteptat integral** + punctajul defalcat. *(2p per item)*
 6. **Verifică validitatea** cu matricea de specificații: itemul măsoară chiar competența vizată?
 

@@ -169,8 +169,9 @@ cooperarea, mozaicul) · specifice informaticii (**instruirea programată, IAC**
 **Nu confunda:** metoda (*cum*) ↔ mijlocul (*cu ce*) ↔ forma (*cu cine*).
 
 **Itemii (3 categorii):** obiectivi (alegere duală A/F, alegere multiplă, de tip pereche) ·
-semiobiectivi (răspuns scurt, completare, **întrebare structurată**) · subiectivi (rezolvare de
-probleme, eseu structurat/liber). Calitățile instrumentului: **validitate, fidelitate, obiectivitate,
+semiobiectivi (răspuns scurt, completare,
+**[întrebare structurată](/metodica/03-evaluare-randament#itemul-de-tip-intrebare-structurata)** —
+vedeta subiectului II.2) · subiectivi (rezolvare de probleme, eseu structurat/liber). Calitățile instrumentului: **validitate, fidelitate, obiectivitate,
 aplicabilitate**.
 
 **Evaluarea:** forme — **inițială / formativă (pe parcurs) / sumativă (bilanț)**; funcții —
