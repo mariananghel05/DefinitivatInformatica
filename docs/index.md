@@ -62,6 +62,7 @@ disciplina **Informatică și Tehnologia Informației**. Conținutul urmează fi
 și este împărțit în module:
 
 - **[Ghidul examenului](/ghid-examen)** — expunerea progresivă „de la structură la detaliu": arborele examenului cu noduri pliabile, corelarea didactică și traseul de pregătire.
+- **[Esențialul — de reținut](/esential)** — fișa de sinteză: formulele, teoremele, capcanele C++ și listele didactice de recitat înainte de examen.
 - **[Despre examen](/despre-examen)** — structura probei, condiții de înscriere, notă minimă, calendar și surse oficiale.
 - **[Harta materiei](/harta-materiei)** — cuprinsul complet al programei, cu link către fiecare subiect.
 - **[Conținuturi pe clase (V–XII)](/programa-clase)** — programa fiecărei clase, pe domenii, din programele în vigoare.

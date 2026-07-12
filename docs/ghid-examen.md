@@ -638,5 +638,5 @@ Fiecare temă din programă, mapată pe examen — bifează pe măsură ce stăp
 3. La fiecare temă științifică, citește și secțiunile **„Conexiuni cu alte teme"** — ele țes plasa;
 4. Rezolvă integral [Varianta 1](/subiecte/varianta-1) cu ceas (4 ore), apoi confruntă cu baremul;
 5. Fixează cu [Cardurile](/carduri) (grilă + cod) și reia [Variantele 2–3](/subiecte/);
-6. Cu o săptămână înainte: doar acest ghid (închis!) + [greșelile frecvente](#greseli-frecvente-la-subiectul-ii)
-   + [capcanele de barem din temele științifice](/harta-materiei).
+6. Cu o săptămână înainte: doar acest ghid (închis!) + [fișa cu Esențialul de reținut](/esential)
+   + [greșelile frecvente](#greseli-frecvente-la-subiectul-ii).

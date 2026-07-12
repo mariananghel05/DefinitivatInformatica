@@ -202,6 +202,10 @@ Informației**.
       (`dupaSfarsit` la greedy, `dupaCost` la Kruskal), structured bindings → variabile explicite cu
       comentarii (Dijkstra), `std::greater` → comparator propriu `descrescator` ca variantă principală;
       formele moderne păstrate în blocuri pliabile „Varianta modernă, echivalentă"
+- [x] **`docs/esential.md`** — fișa de sinteză „de reținut": formulele grafurilor/combinatoricii/
+      aritmeticii, tabelul de aur al complexităților, valori-limită, teoremele de citat, top 10 capcane
+      C++, esențialul BD/TIC, listele didactice de recitat (momente, tipuri de lecție, metode, itemi,
+      efecte perturbatoare) + cadrul normativ; intrare în nav (dropdown „Ghid examen") + sidebar propriu
 
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`

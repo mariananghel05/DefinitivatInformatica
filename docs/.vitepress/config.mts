@@ -24,7 +24,13 @@ export default defineConfig({
     // Bara de sus
     nav: [
       { text: 'Acasă', link: '/' },
-      { text: 'Ghid examen', link: '/ghid-examen' },
+      {
+        text: 'Ghid examen',
+        items: [
+          { text: 'Ghidul examenului (arborele)', link: '/ghid-examen' },
+          { text: 'Esențialul — de reținut', link: '/esential' },
+        ],
+      },
       { text: 'Despre examen', link: '/despre-examen' },
       {
         text: 'Programa',
@@ -100,6 +106,31 @@ export default defineConfig({
           text: 'Verificare finală',
           items: [
             { text: 'Acoperirea materiei', link: '/ghid-examen#acoperirea-materiei-verificare-finala' },
+            { text: 'Esențialul — de reținut', link: '/esential' },
+          ],
+        },
+      ],
+      '/esential': [
+        {
+          text: 'Esențialul — de reținut',
+          items: [
+            { text: 'Formule și numărători', link: '/esential#formule-si-numaratori' },
+            { text: 'Complexități — tabelul de aur', link: '/esential#complexitati-tabelul-de-aur' },
+            { text: 'Valori și limite numerice', link: '/esential#valori-si-limite-numerice' },
+            { text: 'Teoreme de citat', link: '/esential#teoreme-si-proprietati-de-citat' },
+            { text: 'Capcanele C++ — top 10', link: '/esential#capcanele-de-limbaj-c-top-10' },
+            { text: 'Structuri de date', link: '/esential#structuri-de-date-pe-scurt' },
+            { text: 'Baze de date', link: '/esential#baze-de-date-esentialul' },
+            { text: 'TIC — reperele', link: '/esential#tic-reperele-de-enumerat' },
+            { text: 'Didactica — listele de recitat', link: '/esential#didactica-listele-de-recitat-inainte-de-subiectul-ii' },
+            { text: 'Cadrul de referință', link: '/esential#cadrul-de-referinta-actele-normative-citate-in-curs' },
+          ],
+        },
+        {
+          text: 'Perechea fișei',
+          items: [
+            { text: 'Ghidul examenului', link: '/ghid-examen' },
+            { text: 'Carduri (exersare)', link: '/carduri' },
           ],
         },
       ],
