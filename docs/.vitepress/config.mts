@@ -313,6 +313,7 @@ export default defineConfig({
             { text: 'Varianta 1 — Model 2024 (oficial)', link: '/subiecte/varianta-1' },
             { text: 'Varianta 2 — 2025 (oficial)', link: '/subiecte/varianta-2' },
             { text: 'Varianta 3 — antrenament', link: '/subiecte/varianta-3' },
+            { text: 'Arhiva oficială (2018–2026)', link: '/subiecte/arhiva-oficiala' },
           ],
         },
       ],

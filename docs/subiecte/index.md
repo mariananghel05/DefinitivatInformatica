@@ -27,6 +27,10 @@ Pe baza a **două secvențe (A, B)** din programe școlare reale:
 | [Varianta 2](/subiecte/varianta-2) | **oficial — 8 iulie 2025** | liste înlănțuite · viruși · etichete scaune · BD festivaluri · metodică |
 | [Varianta 3](/subiecte/varianta-3) | antrenament (format real) | backtracking · rețele · problemă cu fișier · BD bibliotecă · metodică |
 
+Vrei mai mult antrenament pe subiecte reale? **[Arhiva oficială 2018–2026](/subiecte/arhiva-oficiala)**
+adună toate subiectele și baremele oficiale verificate (PDF), plus modelele publicate de minister —
+cu protocolul de lucru recomandat.
+
 ::: tip Cum folosești modelele
 Încearcă întâi să rezolvi singur, **cronometrat (4 ore)**, apoi compară cu rezolvarea și **baremul
 oficial**. Urmărește mai ales: structura răspunsurilor „pe plan de idei" la I.1–I.2, corectitudinea

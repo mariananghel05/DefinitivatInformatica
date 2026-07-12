@@ -206,6 +206,10 @@ Informației**.
       aritmeticii, tabelul de aur al complexităților, valori-limită, teoremele de citat, top 10 capcane
       C++, esențialul BD/TIC, listele didactice de recitat (momente, tipuri de lecție, metode, itemi,
       efecte perturbatoare) + cadrul normativ; intrare în nav (dropdown „Ghid examen") + sidebar propriu
+- [x] **`docs/subiecte/arhiva-oficiala.md`** — arhiva subiectelor oficiale + bareme (PDF, verificate):
+      sesiunile 2018–2025 + modelele 2023/2026, cu rezolvările integrale de pe site (2024, 2025) și
+      rezolvări video I.3 (2023–2025), protocolul de lucru pe variantă și convenția de denumire a
+      fișierelor oficiale; bonus titularizare; legată din sidebar, subiecte/index și traseul din ghid
 
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`
