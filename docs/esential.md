@@ -64,7 +64,8 @@
 **Ordinea claselor:** O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!).
 **Regula practică:** ~**10⁸ operații simple/secundă**; buclele **imbricate se înmulțesc**, cele
 **succesive se adună**. **Limita teoretică:** orice sortare prin comparații ≥ n·log₂ n comparații.
-→ [Analiza complexității](/stiintific/01-algoritmi)
+→ [Analiza complexității](/stiintific/01-algoritmi) · implementările simple + **animațiile pas cu
+pas** ale fiecărui algoritm: [Algoritmii — animații](/algoritmi-vizual)
 
 ## Valori și limite numerice
 

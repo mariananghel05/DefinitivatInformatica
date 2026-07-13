@@ -215,6 +215,20 @@ Informației**.
       rezolvări video I.3 (2023–2025), protocolul de lucru pe variantă și convenția de denumire a
       fișierelor oficiale; bonus titularizare; legată din sidebar, subiecte/index și traseul din ghid
 
+## Pasul 13 — „Algoritmii — animații": lista completă + implementări + animatorul interactiv
+- [x] Componenta **`AlgoVis.vue`** + datele **`algovis-data.js`** — animator cu două vizualizări
+      simultane: execuția codului (linia curentă evidențiată) și evoluția datelor (celule colorate,
+      indicatori i/j/st/dr/m, jetoane de variabile, explicația fiecărui pas); controale
+      play/pauză/pas/viteză; 100% static (fără servicii externe), temă light/dark
+- [x] Pași de execuție generați pentru 7 algoritmi: căutarea secvențială și binară, bule, inserție,
+      selecție, interclasare, Euclid — pe aceleași exemple folosite în paginile de teorie
+- [x] **`docs/algoritmi-vizual.md`** — tabelul complet al algoritmilor cu complexități + câte un
+      spoiler cu implementarea foarte simplă (vector, comentată linie cu linie) pentru toți: căutări,
+      sortări (inclusiv numărare și merge sort), interclasare, Euclid/cmmmc, primalitate, cifrele
+      numărului, BFS/DFS/Dijkstra (varianta simplă O(n²))/Roy–Floyd/Kruskal, backtracking permutări,
+      Fibonacci DP, LIS, greedy spectacole
+- [x] Navigație: intrare în dropdown-ul „Ghid examen", sidebar propriu, legătură din Esențial
+
 ## Convenții de lucru
 - Fiecare temă științifică respectă **șablonul unic**: `Teorie` → `Competențe vizate` → `Abordare metodică`
   (vezi `STRUCTURA-CONTINUT.md`).

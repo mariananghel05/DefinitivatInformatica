@@ -29,6 +29,7 @@ export default defineConfig({
         items: [
           { text: 'Ghidul examenului (arborele)', link: '/ghid-examen' },
           { text: 'Esențialul — de reținut', link: '/esential' },
+          { text: 'Algoritmii — animații', link: '/algoritmi-vizual' },
         ],
       },
       { text: 'Despre examen', link: '/despre-examen' },
@@ -107,6 +108,28 @@ export default defineConfig({
           items: [
             { text: 'Acoperirea materiei', link: '/ghid-examen#acoperirea-materiei-verificare-finala' },
             { text: 'Esențialul — de reținut', link: '/esential' },
+          ],
+        },
+      ],
+      '/algoritmi-vizual': [
+        {
+          text: 'Algoritmii — animații',
+          items: [
+            { text: 'Cum citești animatorul', link: '/algoritmi-vizual#cum-citesti-animatorul' },
+            { text: 'Tabelul complet', link: '/algoritmi-vizual#tabelul-complet' },
+            { text: 'Căutare', link: '/algoritmi-vizual#cautare' },
+            { text: 'Sortare', link: '/algoritmi-vizual#sortare' },
+            { text: 'Interclasarea', link: '/algoritmi-vizual#interclasarea' },
+            { text: 'Algoritmi elementari', link: '/algoritmi-vizual#algoritmi-elementari' },
+            { text: 'Grafuri', link: '/algoritmi-vizual#grafuri' },
+            { text: 'Metode de programare', link: '/algoritmi-vizual#metode-de-programare' },
+          ],
+        },
+        {
+          text: 'Perechea paginii',
+          items: [
+            { text: 'Esențialul — complexități', link: '/esential#complexitati-tabelul-de-aur' },
+            { text: 'Tematica științifică', link: '/stiintific/' },
           ],
         },
       ],
